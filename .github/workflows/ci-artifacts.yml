@@ -140,3 +140,6 @@ jobs:
           name: .
           path: git-sdk-64-minimal-test.tar.xz
           container: ci-artifacts
+
+- name: Run mabl tests
+  uses: mablhq/github-run-tests-action@v1.5
