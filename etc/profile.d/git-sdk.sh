@@ -65,14 +65,14 @@ sdk () {
 		'') break;;
 		-*) sdk die "Unknown option: %s\n" "$1"; return 1;;
 		esac; do shift; done &&
-
 		case "$(uname -m)" in
 		i686) bitness=" 32-bit";;
 		x86_64) bitness=" 64-bit";;
 		*) bitness=;;
 		esac &&
-		desktop_icon_path="$(reg query 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders' //v Desktop |
-			sed -ne 'y/\\/\//' -e 's/.*REG_SZ *//p')/Git SDK$bitness.lnk" &&
+		desktop_icon_path="Git SDK$bitness.lnk" &&
+		desktop_icon_path="$(create-shortcut.exe -n --desktop-shortcut /git-bash.exe "$desktop_icon_path" |
+			sed -n 's/^destination: //p')" &&
 		if test -n "$force" || test ! -f "$desktop_icon_path"
 		then
 			create-shortcut.exe --icon-file /msys2.ico --work-dir \
@@ -238,9 +238,15 @@ sdk () {
 			git -C "$src_cdup_dir" pull origin HEAD
 			;;
 		refs/heads/master)
-			git -C "$src_cdup_dir" branch -m main &&
-			sdk "$@"
-			return $?
+			if git -C "$src_cdup_dir" rev-parse --verify HEAD >/dev/null 2>&1
+			then
+				git -C "$src_cdup_dir" branch -m main &&
+				sdk "$@"
+				return $?
+			fi
+			# Not checked out yet
+			git -C "$src_cdup_dir" symbolic-ref HEAD refs/heads/main &&
+			git -C "$src_cdup_dir" pull origin HEAD
 			;;
 		refs/heads/main)
 			case "$(git -C "$src_cdup_dir" rev-parse --symbolic-full-name main@{upstream} 2>/dev/null)" in
@@ -250,7 +256,9 @@ sdk () {
 			esac &&
 
 			case "$(git -C "$src_cdup_dir" symbolic-ref refs/remotes/origin/HEAD 2>/dev/null)" in
-			''|refs/heads/master) git -C "$src_cdup_dir" remote set-head -a origin;;
+			''|refs/heads/master)
+				git -C "$src_cdup_dir" fetch origin &&
+				git -C "$src_cdup_dir" remote set-head -a origin;;
 			esac &&
 
 			if { git -C "$src_cdup_dir" diff-files --quiet &&
@@ -265,6 +273,7 @@ sdk () {
 		then
 			cat >"$src_dir/config.mak" <<-\EOF
 			DEVELOPER=1
+			SKIP_DASHED_BUILT_INS=YesPlease
 			ifndef NDEBUG
 			CFLAGS := $(filter-out -O2,$(CFLAGS))
 			ASLR_OPTION := -Wl,--dynamicbase
@@ -273,15 +282,15 @@ sdk () {
 			EOF
 		elif test msys2-runtime = "$2"
 		then
-			remotes="$(git -C "$src_cdup_dir"  remote -v)"
+			remotes="$(git -C "$src_dir"  remote -v)"
 			case "$remotes" in *"cygwin	"*) ;;
-			*) git -C "$src_cdup_dir" remote add -f cygwin \
+			*) git -C "$src_dir" remote add -f cygwin \
 				https://github.com/Cygwin/cygwin;; esac
 			case "$remotes" in *"msys2	"*) ;;
-			*) git -C "$src_cdup_dir" remote add -f msys2 \
+			*) git -C "$src_dir" remote add -f msys2 \
 				https://github.com/Alexpux/Cygwin;; esac
 			case "$remotes" in *"git-for-windows	"*) ;;
-			*) git -C "$src_cdup_dir" remote add -f \
+			*) git -C "$src_dir" remote add -f \
 				git-for-windows \
 				https://github.com/git-for-windows/$2;; esac
 		fi
@@ -345,7 +354,7 @@ sdk () {
 			then
 				case "$MSYSTEM" in
 				MSYS) sdk makepkg -f;;
-				MINGW*) MINGW_INSTALLS=${MSYSTEM,,} sdk makepkg-mingw -f;;
+				MINGW*) MINGW_ARCH=${MSYSTEM,,} sdk makepkg-mingw -f;;
 				esac
 				return $?
 			fi

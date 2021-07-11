@@ -607,6 +607,54 @@ unsigned long _lrotr(unsigned long __X, int __C)
 #define __INTRINSIC_DEFINED__lrotr
 #endif /* __INTRINSIC_PROLOG */
 
+#if __INTRINSIC_PROLOG(_rotl8)
+unsigned char _rotl8(unsigned char __X, unsigned char __C);
+#if !__has_builtin(_rotl8)
+__INTRINSICS_USEINLINE
+unsigned char _rotl8(unsigned char __X, unsigned char __C)
+{
+  return (__X << __C) | (__X >> (8 - __C));
+}
+#endif
+#define __INTRINSIC_DEFINED__rotl8
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(_rotr8)
+unsigned char _rotr8(unsigned char __X, unsigned char __C);
+#if !__has_builtin(_rotr8)
+__INTRINSICS_USEINLINE
+unsigned char _rotr8(unsigned char __X, unsigned char __C)
+{
+  return (__X >> __C) | (__X << (8 - __C));
+}
+#endif
+#define __INTRINSIC_DEFINED__rotr8
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(_rotl16)
+unsigned short _rotl16(unsigned short __X, unsigned char __C);
+#if !__has_builtin(_rotl16)
+__INTRINSICS_USEINLINE
+unsigned short _rotl16(unsigned short __X, unsigned char __C)
+{
+  return (__X << __C) | (__X >> (16 - __C));
+}
+#endif
+#define __INTRINSIC_DEFINED__rotl16
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(_rotr16)
+unsigned short _rotr16(unsigned short __X, unsigned char __C);
+#if !__has_builtin(_rotr16)
+__INTRINSICS_USEINLINE
+unsigned short _rotr16(unsigned short __X, unsigned char __C)
+{
+  return (__X >> __C) | (__X << (16 - __C));
+}
+#endif
+#define __INTRINSIC_DEFINED__rotr16
+#endif /* __INTRINSIC_PROLOG */
+
 #if defined(__x86_64__) || defined(_AMD64_)
 
 #if __INTRINSIC_PROLOG(__faststorefence)
@@ -1858,6 +1906,7 @@ void __cpuid(int CPUInfo[4], int InfoType) {
 #define __INTRINSIC_DEFINED___cpuid
 #endif /* __INTRINSIC_PROLOG */
 
+#if (!defined(__GNUC__) || __GNUC__ < 11)
 #if __INTRINSIC_PROLOG(__cpuidex)
 void __cpuidex(int CPUInfo[4], int, int);
 #if !__has_builtin(__cpuidex)
@@ -1871,6 +1920,7 @@ void __cpuidex(int CPUInfo[4], int function_id, int subfunction_id) {
 #endif
 #define __INTRINSIC_DEFINED___cpuidex
 #endif /* __INTRINSIC_PROLOG */
+#endif /* __GNUC__ < 11 */
 
 #if __INTRINSIC_PROLOG(__readmsr)
 __MINGW_EXTENSION unsigned __int64 __readmsr(unsigned __LONG32);

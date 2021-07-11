@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<meta name="generator" content="Asciidoctor 2.0.10"/>
+<meta name="generator" content="Asciidoctor 2.0.13"/>
 <title>git-worktree(1)</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700"/>
 <style>
@@ -47,7 +47,7 @@ textarea{overflow:auto;vertical-align:top}
 table{border-collapse:collapse;border-spacing:0}
 *,*::before,*::after{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}
 html,body{font-size:100%}
-body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;font-weight:400;font-style:normal;line-height:1;position:relative;cursor:auto;tab-size:4;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
+body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;font-weight:400;font-style:normal;line-height:1;position:relative;cursor:auto;tab-size:4;word-wrap:anywhere;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
 a:hover{cursor:pointer}
 img,object,embed{max-width:100%;height:auto}
 object,embed{height:100%}
@@ -62,10 +62,8 @@ img{-ms-interpolation-mode:bicubic}
 img,object,svg{display:inline-block;vertical-align:middle}
 textarea{height:auto;min-height:50px}
 select{width:100%}
-.center{margin-left:auto;margin-right:auto}
-.stretch{width:100%}
 .subheader,.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{line-height:1.45;color:#7a2518;font-weight:400;margin-top:0;margin-bottom:.25em}
-div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0;direction:ltr}
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0}
 a{color:#2156a5;text-decoration:underline;line-height:inherit}
 a:hover,a:focus{color:#1d4b8f}
 a img{border:0}
@@ -96,28 +94,28 @@ dl dd{margin-bottom:1.25em}
 abbr,acronym{text-transform:uppercase;font-size:90%;color:rgba(0,0,0,.8);border-bottom:1px dotted #ddd;cursor:help}
 abbr{text-transform:none}
 blockquote{margin:0 0 1.25em;padding:.5625em 1.25em 0 1.1875em;border-left:1px solid #ddd}
-blockquote cite{display:block;font-size:.9375em;color:rgba(0,0,0,.6)}
-blockquote cite::before{content:"\2014 \0020"}
-blockquote cite a,blockquote cite a:visited{color:rgba(0,0,0,.6)}
 blockquote,blockquote p{line-height:1.6;color:rgba(0,0,0,.85)}
 @media screen and (min-width:768px){h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2}
 h1{font-size:2.75em}
 h2{font-size:2.3125em}
 h3,#toctitle,.sidebarblock>.content>.title{font-size:1.6875em}
 h4{font-size:1.4375em}}
-table{background:#fff;margin-bottom:1.25em;border:solid 1px #dedede}
+table{background:#fff;margin-bottom:1.25em;border:solid 1px #dedede;word-wrap:normal}
 table thead,table tfoot{background:#f7f8f7}
 table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:.5em .625em .625em;font-size:inherit;color:rgba(0,0,0,.8);text-align:left}
 table tr th,table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8)}
 table tr.even,table tr.alt{background:#f8f8f7}
-table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{display:table-cell;line-height:1.6}
+table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{line-height:1.6}
 h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2;word-spacing:-.05em}
 h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title strong,h4 strong,h5 strong,h6 strong{font-weight:400}
+.center{margin-left:auto;margin-right:auto}
+.stretch{width:100%}
 .clearfix::before,.clearfix::after,.float-group::before,.float-group::after{content:" ";display:table}
 .clearfix::after,.float-group::after{clear:both}
-:not(pre):not([class^=L])>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background:#f7f7f8;-webkit-border-radius:4px;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed;word-wrap:break-word}
-:not(pre)>code.nobreak{word-wrap:normal}
-:not(pre)>code.nowrap{white-space:nowrap}
+:not(pre).nobreak{word-wrap:normal}
+:not(pre).nowrap{white-space:nowrap}
+:not(pre).pre-wrap{white-space:pre-wrap}
+:not(pre):not([class^=L])>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background:#f7f7f8;-webkit-border-radius:4px;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed}
 pre{color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;line-height:1.45;text-rendering:optimizeSpeed}
 pre code,pre pre{color:inherit;font-size:inherit;line-height:inherit}
 pre>code{display:block}
@@ -182,7 +180,7 @@ body.toc2.toc-right{padding-left:0;padding-right:20em}}
 #content #toc{border-style:solid;border-width:1px;border-color:#e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;-webkit-border-radius:4px;border-radius:4px}
 #content #toc>:first-child{margin-top:0}
 #content #toc>:last-child{margin-bottom:0}
-#footer{max-width:100%;background:rgba(0,0,0,.8);padding:1.25em}
+#footer{max-width:none;background:rgba(0,0,0,.8);padding:1.25em}
 #footer-text{color:rgba(255,255,255,.8);line-height:1.44}
 #content{margin-bottom:.625em}
 .sect1{padding-bottom:.625em}
@@ -205,7 +203,7 @@ table.tableblock #preamble>.sectionbody>[class="paragraph"]:first-of-type p{font
 .admonitionblock>table td.icon{text-align:center;width:80px}
 .admonitionblock>table td.icon img{max-width:none}
 .admonitionblock>table td.icon .title{font-weight:bold;font-family:"Open Sans","DejaVu Sans",sans-serif;text-transform:uppercase}
-.admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #dddddf;color:rgba(0,0,0,.6)}
+.admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #dddddf;color:rgba(0,0,0,.6);word-wrap:anywhere}
 .admonitionblock>table td.content>:last-child>:last-child{margin-bottom:0}
 .exampleblock>.content{border-style:solid;border-width:1px;border-color:#e6e6e6;margin-bottom:1.25em;padding:1.25em;background:#fff;-webkit-border-radius:4px;border-radius:4px}
 .exampleblock>.content>:first-child{margin-top:0}
@@ -215,7 +213,7 @@ table.tableblock #preamble>.sectionbody>[class="paragraph"]:first-of-type p{font
 .sidebarblock>:last-child{margin-bottom:0}
 .sidebarblock>.content>.title{color:#7a2518;margin-top:0;text-align:center}
 .exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
-.literalblock pre,.listingblock>.content>pre{-webkit-border-radius:4px;border-radius:4px;word-wrap:break-word;overflow-x:auto;padding:1em;font-size:.8125em}
+.literalblock pre,.listingblock>.content>pre{-webkit-border-radius:4px;border-radius:4px;overflow-x:auto;padding:1em;font-size:.8125em}
 @media screen and (min-width:768px){.literalblock pre,.listingblock>.content>pre{font-size:.90625em}}
 @media screen and (min-width:1280px){.literalblock pre,.listingblock>.content>pre{font-size:1em}}
 .literalblock pre,.listingblock>.content>pre:not(.highlight),.listingblock>.content>pre[class="highlight"],.listingblock>.content>pre[class^="highlight "]{background:#f7f7f8}
@@ -260,22 +258,21 @@ pre.pygments .lineno::before{content:"";margin-right:-.125em}
 .quoteblock.excerpt>blockquote,.quoteblock .quoteblock{padding:0 0 .25em 1em;border-left:.25em solid #dddddf}
 .quoteblock.excerpt,.quoteblock .quoteblock{margin-left:0}
 .quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{color:inherit;font-size:1.0625rem}
-.quoteblock.excerpt .attribution,.quoteblock .quoteblock .attribution{color:inherit;text-align:left;margin-right:0}
-table.tableblock{max-width:100%;border-collapse:separate}
+.quoteblock.excerpt .attribution,.quoteblock .quoteblock .attribution{color:inherit;font-size:.85rem;text-align:left;margin-right:0}
 p.tableblock:last-child{margin-bottom:0}
+td.tableblock>.content{margin-bottom:1.25em;word-wrap:anywhere}
 td.tableblock>.content>:last-child{margin-bottom:-1.25em}
-td.tableblock>.content>:last-child.sidebarblock{margin-bottom:0}
 table.tableblock,th.tableblock,td.tableblock{border:0 solid #dedede}
-table.grid-all>thead>tr>.tableblock,table.grid-all>tbody>tr>.tableblock{border-width:0 1px 1px 0}
-table.grid-all>tfoot>tr>.tableblock{border-width:1px 1px 0 0}
-table.grid-cols>*>tr>.tableblock{border-width:0 1px 0 0}
-table.grid-rows>thead>tr>.tableblock,table.grid-rows>tbody>tr>.tableblock{border-width:0 0 1px}
-table.grid-rows>tfoot>tr>.tableblock{border-width:1px 0 0}
-table.grid-all>*>tr>.tableblock:last-child,table.grid-cols>*>tr>.tableblock:last-child{border-right-width:0}
-table.grid-all>tbody>tr:last-child>.tableblock,table.grid-all>thead:last-child>tr>.tableblock,table.grid-rows>tbody>tr:last-child>.tableblock,table.grid-rows>thead:last-child>tr>.tableblock{border-bottom-width:0}
+table.grid-all>*>tr>*{border-width:1px}
+table.grid-cols>*>tr>*{border-width:0 1px}
+table.grid-rows>*>tr>*{border-width:1px 0}
 table.frame-all{border-width:1px}
+table.frame-ends{border-width:1px 0}
 table.frame-sides{border-width:0 1px}
-table.frame-topbot,table.frame-ends{border-width:1px 0}
+table.frame-none>colgroup+*>:first-child>*,table.frame-sides>colgroup+*>:first-child>*{border-top-width:0}
+table.frame-none>:last-child>:last-child>*,table.frame-sides>:last-child>:last-child>*{border-bottom-width:0}
+table.frame-none>*>tr>:first-child,table.frame-ends>*>tr>:first-child{border-left-width:0}
+table.frame-none>*>tr>:last-child,table.frame-ends>*>tr>:last-child{border-right-width:0}
 table.stripes-all tr,table.stripes-odd tr:nth-of-type(odd),table.stripes-even tr:nth-of-type(even),table.stripes-hover tr:hover{background:#f8f8f7}
 th.halign-left,td.halign-left{text-align:left}
 th.halign-right,td.halign-right{text-align:right}
@@ -284,7 +281,7 @@ th.valign-top,td.valign-top{vertical-align:top}
 th.valign-bottom,td.valign-bottom{vertical-align:bottom}
 th.valign-middle,td.valign-middle{vertical-align:middle}
 table thead th,table tfoot th{font-weight:bold}
-tbody tr th{display:table-cell;line-height:1.6;background:#f7f8f7}
+tbody tr th{background:#f7f8f7}
 tbody tr th,tbody tr th p,tfoot tr th,tfoot tr th p{color:rgba(0,0,0,.8);font-weight:bold}
 p.tableblock>code:only-child{background:none;padding:0}
 p.tableblock{font-size:1em}
@@ -313,6 +310,7 @@ ol.lowergreek{list-style-type:lower-greek}
 .hdlist>table>tbody>tr,.colist>table>tbody>tr{background:none}
 td.hdlist1,td.hdlist2{vertical-align:top;padding:0 .625em}
 td.hdlist1{font-weight:bold;padding-bottom:1.25em}
+td.hdlist2{word-wrap:anywhere}
 .literalblock+.colist,.listingblock+.colist{margin-top:-.5em}
 .colist td:not([class]):first-child{padding:.4em .75em 0;line-height:1;vertical-align:top}
 .colist td:not([class]):first-child img{max-width:none}
@@ -385,7 +383,7 @@ a span.icon>.fa{cursor:inherit}
 .admonitionblock td.icon .icon-warning::before{content:"\f071";color:#bf6900}
 .admonitionblock td.icon .icon-caution::before{content:"\f06d";color:#bf3400}
 .admonitionblock td.icon .icon-important::before{content:"\f06a";color:#bf0000}
-.conum[data-value]{display:inline-block;color:#fff!important;background:rgba(0,0,0,.8);-webkit-border-radius:100px;border-radius:100px;text-align:center;font-size:.75em;width:1.67em;height:1.67em;line-height:1.67em;font-family:"Open Sans","DejaVu Sans",sans-serif;font-style:normal;font-weight:bold}
+.conum[data-value]{display:inline-block;color:#fff!important;background:rgba(0,0,0,.8);-webkit-border-radius:50%;border-radius:50%;text-align:center;font-size:.75em;width:1.67em;height:1.67em;line-height:1.67em;font-family:"Open Sans","DejaVu Sans",sans-serif;font-style:normal;font-weight:bold}
 .conum[data-value] *{color:#fff!important}
 .conum[data-value]+b{display:none}
 .conum[data-value]::after{content:attr(data-value)}
@@ -412,6 +410,7 @@ thead{display:table-header-group}
 svg{max-width:100%}
 p,blockquote,dt,td.content{font-size:1em;orphans:3;widows:3}
 h2,h3,#toctitle,.sidebarblock>.content>.title{page-break-after:avoid}
+#header,#content,#footnotes,#footer{max-width:none}
 #toc,.sidebarblock,.exampleblock>.content{background:none!important}
 #toc{border-bottom:1px solid #dddddf!important;padding-bottom:0!important}
 body.book #header{text-align:center}
@@ -455,6 +454,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <em>git worktree move</em> &lt;worktree&gt; &lt;new-path&gt;
 <em>git worktree prune</em> [-n] [-v] [--expire &lt;expire&gt;]
 <em>git worktree remove</em> [-f] &lt;worktree&gt;
+<em>git worktree repair</em> [&lt;path&gt;&#8230;&#8203;]
 <em>git worktree unlock</em> &lt;worktree&gt;</pre>
 </div>
 </div>
@@ -469,10 +469,24 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>A git repository can support multiple working trees, allowing you to check
 out more than one branch at a time.  With <code>git worktree add</code> a new working
 tree is associated with the repository.  This new working tree is called a
-"linked working tree" as opposed to the "main working tree" prepared by "git
-init" or "git clone".  A repository has one main working tree (if it&#8217;s not a
+"linked working tree" as opposed to the "main working tree" prepared by
+<a href="git-init.html">git-init(1)</a> or <a href="git-clone.html">git-clone(1)</a>.
+A repository has one main working tree (if it&#8217;s not a
 bare repository) and zero or more linked working trees. When you are done
 with a linked working tree, remove it with <code>git worktree remove</code>.</p>
+</div>
+<div class="paragraph">
+<p>In its simplest form, <code>git worktree add &lt;path&gt;</code> automatically creates a
+new branch whose name is the final component of <code>&lt;path&gt;</code>, which is
+convenient if you plan to work on a new topic. For instance, <code>git
+worktree add ../hotfix</code> creates new branch <code>hotfix</code> and checks it out at
+path <code>../hotfix</code>. To instead work on an existing branch in a new working
+tree, use <code>git worktree add &lt;path&gt; &lt;branch&gt;</code>. On the other hand, if you
+just plan to make some experimental changes or do testing without
+disturbing existing development, it is often convenient to create a
+<em>throwaway</em> working tree not associated with any branch. For instance,
+<code>git worktree add -d &lt;path&gt;</code> creates a new working tree with a detached
+<code>HEAD</code> at the same commit as the current branch.</p>
 </div>
 <div class="paragraph">
 <p>If a working tree is deleted without using <code>git worktree remove</code>, then
@@ -499,10 +513,10 @@ specifying <code>--reason</code> to explain why the working tree is locked.</p>
 <dd>
 <p>Create <code>&lt;path&gt;</code> and checkout <code>&lt;commit-ish&gt;</code> into it. The new working directory
 is linked to the current repository, sharing everything except working
-directory specific files such as HEAD, index, etc. <code>-</code> may also be
-specified as <code>&lt;commit-ish&gt;</code>; it is synonymous with <code>@{-1}</code>.</p>
+directory specific files such as <code>HEAD</code>, <code>index</code>, etc. As a convenience,
+<code>&lt;commit-ish&gt;</code> may be a bare "<code>-</code>", which is synonymous with <code>@{-1}</code>.</p>
 <div class="paragraph">
-<p>If &lt;commit-ish&gt; is a branch name (call it <code>&lt;branch&gt;</code>) and is not found,
+<p>If <code>&lt;commit-ish&gt;</code> is a branch name (call it <code>&lt;branch&gt;</code>) and is not found,
 and neither <code>-b</code> nor <code>-B</code> nor <code>--detach</code> are used, but there does
 exist a tracking branch in exactly one remote (call it <code>&lt;remote&gt;</code>)
 with a matching name, treat as equivalent to:</p>
@@ -519,26 +533,28 @@ one for the purposes of disambiguation, even if the <code>&lt;branch&gt;</code> 
 unique across all remotes. Set it to
 e.g. <code>checkout.defaultRemote=origin</code> to always checkout remote
 branches from there if <code>&lt;branch&gt;</code> is ambiguous but exists on the
-<em>origin</em> remote. See also <code>checkout.defaultRemote</code> in
+<code>origin</code> remote. See also <code>checkout.defaultRemote</code> in
 <a href="git-config.html">git-config(1)</a>.</p>
 </div>
 <div class="paragraph">
 <p>If <code>&lt;commit-ish&gt;</code> is omitted and neither <code>-b</code> nor <code>-B</code> nor <code>--detach</code> used,
-then, as a convenience, the new worktree is associated with a branch
+then, as a convenience, the new working tree is associated with a branch
 (call it <code>&lt;branch&gt;</code>) named after <code>$(basename &lt;path&gt;)</code>.  If <code>&lt;branch&gt;</code>
-doesn&#8217;t exist, a new branch based on HEAD is automatically created as
+doesn&#8217;t exist, a new branch based on <code>HEAD</code> is automatically created as
 if <code>-b &lt;branch&gt;</code> was given.  If <code>&lt;branch&gt;</code> does exist, it will be
-checked out in the new worktree, if it&#8217;s not checked out anywhere
-else, otherwise the command will refuse to create the worktree (unless
+checked out in the new working tree, if it&#8217;s not checked out anywhere
+else, otherwise the command will refuse to create the working tree (unless
 <code>--force</code> is used).</p>
 </div>
 </dd>
 <dt class="hdlist1">list</dt>
 <dd>
-<p>List details of each worktree.  The main worktree is listed first, followed by
-each of the linked worktrees.  The output details include if the worktree is
-bare, the revision currently checked out, and the branch currently checked out
-(or <em>detached HEAD</em> if none).</p>
+<p>List details of each working tree.  The main working tree is listed first,
+followed by each of the linked working trees.  The output details include
+whether the working tree is bare, the revision currently checked out, the
+branch currently checked out (or "detached HEAD" if none), "locked" if
+the worktree is locked, "prunable" if the worktree can be pruned by <code>prune</code>
+command.</p>
 </dd>
 <dt class="hdlist1">lock</dt>
 <dd>
@@ -551,11 +567,14 @@ with <code>--reason</code>.</p>
 <dt class="hdlist1">move</dt>
 <dd>
 <p>Move a working tree to a new location. Note that the main working tree
-or linked working trees containing submodules cannot be moved.</p>
+or linked working trees containing submodules cannot be moved with this
+command. (The <code>git worktree repair</code> command, however, can reestablish
+the connection with linked working trees if you move the main working
+tree manually.)</p>
 </dd>
 <dt class="hdlist1">prune</dt>
 <dd>
-<p>Prune working tree information in $GIT_DIR/worktrees.</p>
+<p>Prune working tree information in <code>$GIT_DIR/worktrees</code>.</p>
 </dd>
 <dt class="hdlist1">remove</dt>
 <dd>
@@ -563,6 +582,31 @@ or linked working trees containing submodules cannot be moved.</p>
 and no modification in tracked files) can be removed. Unclean working
 trees or ones with submodules can be removed with <code>--force</code>. The main
 working tree cannot be removed.</p>
+</dd>
+<dt class="hdlist1">repair [&lt;path&gt;&#8230;&#8203;]</dt>
+<dd>
+<p>Repair working tree administrative files, if possible, if they have
+become corrupted or outdated due to external factors.</p>
+<div class="paragraph">
+<p>For instance, if the main working tree (or bare repository) is moved,
+linked working trees will be unable to locate it. Running <code>repair</code> in
+the main working tree will reestablish the connection from linked
+working trees back to the main working tree.</p>
+</div>
+<div class="paragraph">
+<p>Similarly, if a linked working tree is moved without using <code>git worktree
+move</code>, the main working tree (or bare repository) will be unable to
+locate it. Running <code>repair</code> within the recently-moved working tree will
+reestablish the connection. If multiple linked working trees are moved,
+running <code>repair</code> from any working tree with each tree&#8217;s new <code>&lt;path&gt;</code> as
+an argument, will reestablish the connection to all the specified paths.</p>
+</div>
+<div class="paragraph">
+<p>If both the main working tree and linked working trees have been moved
+manually, then running <code>repair</code> in the main working tree and specifying the
+new <code>&lt;path&gt;</code> of each linked working tree will reestablish all connections
+in both directions.</p>
+</div>
 </dd>
 <dt class="hdlist1">unlock</dt>
 <dd>
@@ -588,7 +632,9 @@ manually). This option overrides these safeguards. To add a missing but
 locked working tree path, specify <code>--force</code> twice.</p>
 <div class="paragraph">
 <p><code>move</code> refuses to move a locked working tree unless <code>--force</code> is specified
-twice.</p>
+twice. If the destination is already assigned to some other working tree but is
+missing (for instance, if <code>&lt;new-path&gt;</code> was deleted manually), then <code>--force</code>
+allows the move to proceed; use <code>--force</code> twice if the destination is locked.</p>
 </div>
 <div class="paragraph">
 <p><code>remove</code> refuses to remove an unclean working tree unless <code>--force</code> is used.
@@ -600,14 +646,15 @@ To remove a locked working tree, specify <code>--force</code> twice.</p>
 <dd>
 <p>With <code>add</code>, create a new branch named <code>&lt;new-branch&gt;</code> starting at
 <code>&lt;commit-ish&gt;</code>, and check out <code>&lt;new-branch&gt;</code> into the new working tree.
-If <code>&lt;commit-ish&gt;</code> is omitted, it defaults to HEAD.
+If <code>&lt;commit-ish&gt;</code> is omitted, it defaults to <code>HEAD</code>.
 By default, <code>-b</code> refuses to create a new branch if it already
 exists. <code>-B</code> overrides this safeguard, resetting <code>&lt;new-branch&gt;</code> to
 <code>&lt;commit-ish&gt;</code>.</p>
 </dd>
+<dt class="hdlist1">-d</dt>
 <dt class="hdlist1">--detach</dt>
 <dd>
-<p>With <code>add</code>, detach HEAD in the new working tree. See "DETACHED HEAD"
+<p>With <code>add</code>, detach <code>HEAD</code> in the new working tree. See "DETACHED HEAD"
 in <a href="git-checkout.html">git-checkout(1)</a>.</p>
 </dd>
 <dt class="hdlist1">--[no-]checkout</dt>
@@ -620,7 +667,7 @@ in <a href="git-read-tree.html">git-read-tree(1)</a>.</p>
 <dt class="hdlist1">--[no-]guess-remote</dt>
 <dd>
 <p>With <code>worktree add &lt;path&gt;</code>, without <code>&lt;commit-ish&gt;</code>, instead
-of creating a new branch from HEAD, if there exists a tracking
+of creating a new branch from <code>HEAD</code>, if there exists a tracking
 branch in exactly one remote matching the basename of <code>&lt;path&gt;</code>,
 base the new branch on the remote-tracking branch, and mark
 the remote-tracking branch as "upstream" from the new branch.</p>
@@ -634,13 +681,13 @@ the remote-tracking branch as "upstream" from the new branch.</p>
 <p>When creating a new branch, if <code>&lt;commit-ish&gt;</code> is a branch,
 mark it as "upstream" from the new branch.  This is the
 default if <code>&lt;commit-ish&gt;</code> is a remote-tracking branch.  See
-"--track" in <a href="git-branch.html">git-branch(1)</a> for details.</p>
+<code>--track</code> in <a href="git-branch.html">git-branch(1)</a> for details.</p>
 </dd>
 <dt class="hdlist1">--lock</dt>
 <dd>
 <p>Keep the working tree locked after creation. This is the
 equivalent of <code>git worktree lock</code> after <code>git worktree add</code>,
-but without race condition.</p>
+but without a race condition.</p>
 </dd>
 <dt class="hdlist1">-n</dt>
 <dt class="hdlist1">--dry-run</dt>
@@ -657,16 +704,23 @@ configuration.  See below for details.</p>
 <dt class="hdlist1">-q</dt>
 <dt class="hdlist1">--quiet</dt>
 <dd>
-<p>With <em>add</em>, suppress feedback messages.</p>
+<p>With <code>add</code>, suppress feedback messages.</p>
 </dd>
 <dt class="hdlist1">-v</dt>
 <dt class="hdlist1">--verbose</dt>
 <dd>
 <p>With <code>prune</code>, report all removals.</p>
+<div class="paragraph">
+<p>With <code>list</code>, output additional information about worktrees (see below).</p>
+</div>
 </dd>
 <dt class="hdlist1">--expire &lt;time&gt;</dt>
 <dd>
-<p>With <code>prune</code>, only expire unused working trees older than &lt;time&gt;.</p>
+<p>With <code>prune</code>, only expire unused working trees older than <code>&lt;time&gt;</code>.</p>
+<div class="paragraph">
+<p>With <code>list</code>, annotate missing working trees as prunable if they are
+older than <code>&lt;time&gt;</code>.</p>
+</div>
 </dd>
 <dt class="hdlist1">--reason &lt;string&gt;</dt>
 <dd>
@@ -678,9 +732,9 @@ configuration.  See below for details.</p>
 absolute.</p>
 <div class="paragraph">
 <p>If the last path components in the working tree&#8217;s path is unique among
-working trees, it can be used to identify worktrees. For example if
-you only have two working trees, at "/abc/def/ghi" and "/abc/def/ggg",
-then "ghi" or "def/ghi" is enough to point to the former working tree.</p>
+working trees, it can be used to identify a working tree. For example if
+you only have two working trees, at <code>/abc/def/ghi</code> and <code>/abc/def/ggg</code>,
+then <code>ghi</code> or <code>def/ghi</code> is enough to point to the former working tree.</p>
 </div>
 </dd>
 </dl>
@@ -692,33 +746,33 @@ then "ghi" or "def/ghi" is enough to point to the former working tree.</p>
 <div class="sectionbody">
 <div class="paragraph">
 <p>In multiple working trees, some refs may be shared between all working
-trees, some refs are local. One example is HEAD is different for all
-working trees. This section is about the sharing rules and how to access
+trees and some refs are local. One example is <code>HEAD</code> which is different for each
+working tree. This section is about the sharing rules and how to access
 refs of one working tree from another.</p>
 </div>
 <div class="paragraph">
 <p>In general, all pseudo refs are per working tree and all refs starting
-with "refs/" are shared. Pseudo refs are ones like HEAD which are
-directly under GIT_DIR instead of inside GIT_DIR/refs. There is one
-exception to this: refs inside refs/bisect and refs/worktree is not
+with <code>refs/</code> are shared. Pseudo refs are ones like <code>HEAD</code> which are
+directly under <code>$GIT_DIR</code> instead of inside <code>$GIT_DIR/refs</code>. There are
+exceptions, however: refs inside <code>refs/bisect</code> and <code>refs/worktree</code> are not
 shared.</p>
 </div>
 <div class="paragraph">
 <p>Refs that are per working tree can still be accessed from another
-working tree via two special paths, main-worktree and worktrees. The
-former gives access to per-worktree refs of the main working tree,
+working tree via two special paths, <code>main-worktree</code> and <code>worktrees</code>. The
+former gives access to per-working tree refs of the main working tree,
 while the latter to all linked working trees.</p>
 </div>
 <div class="paragraph">
-<p>For example, main-worktree/HEAD or main-worktree/refs/bisect/good
-resolve to the same value as the main working tree&#8217;s HEAD and
-refs/bisect/good respectively. Similarly, worktrees/foo/HEAD or
-worktrees/bar/refs/bisect/bad are the same as
-GIT_COMMON_DIR/worktrees/foo/HEAD and
-GIT_COMMON_DIR/worktrees/bar/refs/bisect/bad.</p>
+<p>For example, <code>main-worktree/HEAD</code> or <code>main-worktree/refs/bisect/good</code>
+resolve to the same value as the main working tree&#8217;s <code>HEAD</code> and
+<code>refs/bisect/good</code> respectively. Similarly, <code>worktrees/foo/HEAD</code> or
+<code>worktrees/bar/refs/bisect/bad</code> are the same as
+<code>$GIT_COMMON_DIR/worktrees/foo/HEAD</code> and
+<code>$GIT_COMMON_DIR/worktrees/bar/refs/bisect/bad</code>.</p>
 </div>
 <div class="paragraph">
-<p>To access refs, it&#8217;s best not to look inside GIT_DIR directly. Instead
+<p>To access refs, it&#8217;s best not to look inside <code>$GIT_DIR</code> directly. Instead
 use commands such as <a href="git-rev-parse.html">git-rev-parse(1)</a> or <a href="git-update-ref.html">git-update-ref(1)</a>
 which will handle refs correctly.</p>
 </div>
@@ -728,14 +782,14 @@ which will handle refs correctly.</p>
 <h2 id="_configuration_file">CONFIGURATION FILE</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>By default, the repository "config" file is shared across all working
+<p>By default, the repository <code>config</code> file is shared across all working
 trees. If the config variables <code>core.bare</code> or <code>core.worktree</code> are
 already present in the config file, they will be applied to the main
 working trees only.</p>
 </div>
 <div class="paragraph">
 <p>In order to have configuration specific to working trees, you can turn
-on "worktreeConfig" extension, e.g.:</p>
+on the <code>worktreeConfig</code> extension, e.g.:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -750,7 +804,7 @@ versions will refuse to access repositories with this extension.</p>
 </div>
 <div class="paragraph">
 <p>Note that in this file, the exception for <code>core.bare</code> and <code>core.worktree</code>
-is gone. If you have them in $GIT_DIR/config before, you must move
+is gone. If they exist in <code>$GIT_DIR/config</code>, you must move
 them to the <code>config.worktree</code> of the main working tree. You may also
 take this opportunity to review and move other configuration that you
 do not want to share to all working trees:</p>
@@ -773,7 +827,7 @@ are sure you always use sparse checkout for all working trees.</p>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Each linked working tree has a private sub-directory in the repository&#8217;s
-$GIT_DIR/worktrees directory.  The private sub-directory&#8217;s name is usually
+<code>$GIT_DIR/worktrees</code> directory.  The private sub-directory&#8217;s name is usually
 the base name of the linked working tree&#8217;s path, possibly appended with a
 number to make it unique.  For example, when <code>$GIT_DIR=/path/main/.git</code> the
 command <code>git worktree add /path/other/test-next next</code> creates the linked
@@ -782,43 +836,44 @@ working tree in <code>/path/other/test-next</code> and also creates a
 if <code>test-next</code> is already taken).</p>
 </div>
 <div class="paragraph">
-<p>Within a linked working tree, $GIT_DIR is set to point to this private
+<p>Within a linked working tree, <code>$GIT_DIR</code> is set to point to this private
 directory (e.g. <code>/path/main/.git/worktrees/test-next</code> in the example) and
-$GIT_COMMON_DIR is set to point back to the main working tree&#8217;s $GIT_DIR
+<code>$GIT_COMMON_DIR</code> is set to point back to the main working tree&#8217;s <code>$GIT_DIR</code>
 (e.g. <code>/path/main/.git</code>). These settings are made in a <code>.git</code> file located at
 the top directory of the linked working tree.</p>
 </div>
 <div class="paragraph">
 <p>Path resolution via <code>git rev-parse --git-path</code> uses either
-$GIT_DIR or $GIT_COMMON_DIR depending on the path. For example, in the
+<code>$GIT_DIR</code> or <code>$GIT_COMMON_DIR</code> depending on the path. For example, in the
 linked working tree <code>git rev-parse --git-path HEAD</code> returns
 <code>/path/main/.git/worktrees/test-next/HEAD</code> (not
 <code>/path/other/test-next/.git/HEAD</code> or <code>/path/main/.git/HEAD</code>) while <code>git
 rev-parse --git-path refs/heads/master</code> uses
-$GIT_COMMON_DIR and returns <code>/path/main/.git/refs/heads/master</code>,
-since refs are shared across all working trees, except refs/bisect and
-refs/worktree.</p>
+<code>$GIT_COMMON_DIR</code> and returns <code>/path/main/.git/refs/heads/master</code>,
+since refs are shared across all working trees, except <code>refs/bisect</code> and
+<code>refs/worktree</code>.</p>
 </div>
 <div class="paragraph">
 <p>See <a href="gitrepository-layout.html">gitrepository-layout(5)</a> for more information. The rule of
 thumb is do not make any assumption about whether a path belongs to
-$GIT_DIR or $GIT_COMMON_DIR when you need to directly access something
-inside $GIT_DIR. Use <code>git rev-parse --git-path</code> to get the final path.</p>
+<code>$GIT_DIR</code> or <code>$GIT_COMMON_DIR</code> when you need to directly access something
+inside <code>$GIT_DIR</code>. Use <code>git rev-parse --git-path</code> to get the final path.</p>
 </div>
 <div class="paragraph">
-<p>If you manually move a linked working tree, you need to update the <em>gitdir</em> file
+<p>If you manually move a linked working tree, you need to update the <code>gitdir</code> file
 in the entry&#8217;s directory. For example, if a linked working tree is moved
 to <code>/newpath/test-next</code> and its <code>.git</code> file points to
 <code>/path/main/.git/worktrees/test-next</code>, then update
 <code>/path/main/.git/worktrees/test-next/gitdir</code> to reference <code>/newpath/test-next</code>
-instead.</p>
+instead. Better yet, run <code>git worktree repair</code> to reestablish the connection
+automatically.</p>
 </div>
 <div class="paragraph">
-<p>To prevent a $GIT_DIR/worktrees entry from being pruned (which
+<p>To prevent a <code>$GIT_DIR/worktrees</code> entry from being pruned (which
 can be useful in some situations, such as when the
 entry&#8217;s working tree is stored on a portable device), use the
 <code>git worktree lock</code> command, which adds a file named
-<em>locked</em> to the entry&#8217;s directory. The file contains the reason in
+<code>locked</code> to the entry&#8217;s directory. The file contains the reason in
 plain text. For example, if a linked working tree&#8217;s <code>.git</code> file points
 to <code>/path/main/.git/worktrees/test-next</code> then a file named
 <code>/path/main/.git/worktrees/test-next/locked</code> will prevent the
@@ -826,7 +881,7 @@ to <code>/path/main/.git/worktrees/test-next</code> then a file named
 <a href="gitrepository-layout.html">gitrepository-layout(5)</a> for details.</p>
 </div>
 <div class="paragraph">
-<p>When extensions.worktreeConfig is enabled, the config file
+<p>When <code>extensions.worktreeConfig</code> is enabled, the config file
 <code>.git/worktrees/&lt;id&gt;/config.worktree</code> is read after <code>.git/config</code> is.</p>
 </div>
 </div>
@@ -835,7 +890,7 @@ to <code>/path/main/.git/worktrees/test-next</code> then a file named
 <h2 id="_list_output_format">LIST OUTPUT FORMAT</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The worktree list command has two output formats.  The default format shows the
+<p>The <code>worktree list</code> command has two output formats. The default format shows the
 details on a single line with columns.  For example:</p>
 </div>
 <div class="listingblock">
@@ -846,14 +901,59 @@ details on a single line with columns.  For example:</p>
 /path/to/other-linked-worktree  1234abc  (detached HEAD)</pre>
 </div>
 </div>
+<div class="paragraph">
+<p>The command also shows annotations for each working tree, according to its state.
+These annotations are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>locked</code>, if the working tree is locked.</p>
+</li>
+<li>
+<p><code>prunable</code>, if the working tree can be pruned via <code>git worktree prune</code>.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ git worktree list
+/path/to/linked-worktree    abcd1234 [master]
+/path/to/locked-worktreee   acbd5678 (brancha) locked
+/path/to/prunable-worktree  5678abc  (detached HEAD) prunable</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For these annotations, a reason might also be available and this can be
+seen using the verbose mode. The annotation is then moved to the next line
+indented followed by the additional information.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ git worktree list --verbose
+/path/to/linked-worktree              abcd1234 [master]
+/path/to/locked-worktree-no-reason    abcd5678 (detached HEAD) locked
+/path/to/locked-worktree-with-reason  1234abcd (brancha)
+        locked: working tree path is mounted on a portable device
+/path/to/prunable-worktree            5678abc1 (detached HEAD)
+        prunable: gitdir file points to non-existent location</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note that the annotation is moved to the next line if the additional
+information is available, otherwise it stays on the same line as the
+working tree itself.</p>
+</div>
 <div class="sect2">
 <h3 id="_porcelain_format">Porcelain Format</h3>
 <div class="paragraph">
 <p>The porcelain format has a line per attribute.  Attributes are listed with a
-label and value separated by a single space.  Boolean attributes (like <em>bare</em>
-and <em>detached</em>) are listed as a label only, and are only present if and only
-if the value is true.  The first attribute of a worktree is always <code>worktree</code>,
-an empty line indicates the end of the record.  For example:</p>
+label and value separated by a single space.  Boolean attributes (like <code>bare</code>
+and <code>detached</code>) are listed as a label only, and are present only
+if the value is true.  Some attributes (like <code>locked</code>) can be listed as a label
+only or with a value depending upon whether a reason is available.  The first
+attribute of a working tree is always <code>worktree</code>, an empty line indicates the
+end of the record.  For example:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -867,7 +967,36 @@ branch refs/heads/master
 
 worktree /path/to/other-linked-worktree
 HEAD 1234abc1234abc1234abc1234abc1234abc1234a
-detached</pre>
+detached
+
+worktree /path/to/linked-worktree-locked-no-reason
+HEAD 5678abc5678abc5678abc5678abc5678abc5678c
+branch refs/heads/locked-no-reason
+locked
+
+worktree /path/to/linked-worktree-locked-with-reason
+HEAD 3456def3456def3456def3456def3456def3456b
+branch refs/heads/locked-with-reason
+locked reason why is locked
+
+worktree /path/to/linked-worktree-prunable
+HEAD 1233def1234def1234def1234def1234def1234b
+detached
+prunable gitdir file points to non-existent location</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If the lock reason contains "unusual" characters such as newline, they
+are escaped and the entire reason is quoted as explained for the
+configuration variable <code>core.quotePath</code> (see <a href="git-config.html">git-config(1)</a>).
+For Example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ git worktree list --porcelain
+...
+locked "reason\nwhy is locked"
+...</pre>
 </div>
 </div>
 </div>
@@ -919,7 +1048,7 @@ checkouts of a superproject.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-06-01 18:38:25 UTC
+Last updated 2021-07-06 19:00:22 UTC
 </div>
 </div>
 </body>

@@ -1369,6 +1369,7 @@ inline ENUMTYPE &operator ^= (ENUMTYPE &a, ENUMTYPE b) { return (ENUMTYPE &)(((i
 #define STATUS_FLOAT_MULTIPLE_FAULTS ((DWORD)0xC00002B4)
 #define STATUS_FLOAT_MULTIPLE_TRAPS ((DWORD)0xC00002B5)
 #define STATUS_REG_NAT_CONSUMPTION ((DWORD)0xC00002C9)
+#define STATUS_HEAP_CORRUPTION ((DWORD)0xC0000374)
 #define STATUS_STACK_BUFFER_OVERRUN ((DWORD)0xC0000409)
 #define STATUS_INVALID_CRUNTIME_PARAMETER ((DWORD)0xC0000417)
 #define STATUS_ASSERTION_FAILURE ((DWORD)0xC0000420)
@@ -1845,6 +1846,9 @@ extern "C" {
 #define InterlockedCompareExchangePointerAcquire _InterlockedCompareExchangePointer
 #define InterlockedCompareExchangePointerRelease _InterlockedCompareExchangePointer
 
+#define YieldProcessor() __asm__ __volatile__("dmb ishst\n\tyield":::"memory")
+#define MemoryBarrier() __asm__ __volatile__("dmb":::"memory")
+
 #ifdef __cplusplus
   }
 #endif
@@ -2053,6 +2057,9 @@ extern "C" {
 #define InterlockedCompareExchangePointer _InterlockedCompareExchangePointer
 #define InterlockedCompareExchangePointerAcquire _InterlockedCompareExchangePointer
 #define InterlockedCompareExchangePointerRelease _InterlockedCompareExchangePointer
+
+#define YieldProcessor() __asm__ __volatile__("dmb ishst\n\tyield":::"memory")
+#define MemoryBarrier() __asm__ __volatile__("dmb sy":::"memory")
 
 #ifdef __cplusplus
   }
@@ -4241,6 +4248,10 @@ __buildmemorybarrier()
       ProcessSignaturePolicy,
       ProcessFontDisablePolicy,
       ProcessImageLoadPolicy,
+      ProcessSystemCallFilterPolicy,
+      ProcessPayloadRestrictionPolicy,
+      ProcessChildProcessPolicy,
+      ProcessSideChannelIsolationPolicy,
       MaxProcessMitigationPolicy
     } PROCESS_MITIGATION_POLICY,*PPROCESS_MITIGATION_POLICY;
 
@@ -4358,6 +4369,62 @@ __buildmemorybarrier()
         };
       };
     } PROCESS_MITIGATION_IMAGE_LOAD_POLICY, *PPROCESS_MITIGATION_IMAGE_LOAD_POLICY;
+
+    typedef struct _PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY {
+      __C89_NAMELESS union {
+        DWORD Flags;
+        __C89_NAMELESS struct {
+          DWORD FilterId  :4;
+          DWORD ReservedFlags  :28;
+        };
+      };
+    } PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY, *PPROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY;
+
+    typedef struct _PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY {
+      __C89_NAMELESS union {
+        DWORD Flags;
+        __C89_NAMELESS struct {
+          DWORD EnableExportAddressFilter  :1;
+          DWORD AuditExportAddressFilter  :1;
+          DWORD EnableExportAddressFilterPlus  :1;
+          DWORD AuditExportAddressFilterPlus  :1;
+          DWORD EnableImportAddressFilter  :1;
+          DWORD AuditImportAddressFilter  :1;
+          DWORD EnableRopStackPivot  :1;
+          DWORD AuditRopStackPivot  :1;
+          DWORD EnableRopCallerCheck  :1;
+          DWORD AuditRopCallerCheck  :1;
+          DWORD EnableRopSimExec  :1;
+          DWORD AuditRopSimExec  :1;
+          DWORD ReservedFlags  :20;
+        };
+      };
+    } PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY, *PPROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY;
+
+    typedef struct _PROCESS_MITIGATION_CHILD_PROCESS_POLICY {
+      __C89_NAMELESS union {
+        DWORD Flags;
+        __C89_NAMELESS struct {
+          DWORD NoChildProcessCreation  :1;
+          DWORD AuditNoChildProcessCreation  :1;
+          DWORD AllowSecureProcessCreation  :1;
+          DWORD ReservedFlags  :29;
+        };
+      };
+    } PROCESS_MITIGATION_CHILD_PROCESS_POLICY, *PPROCESS_MITIGATION_CHILD_PROCESS_POLICY;
+
+    typedef struct _PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY {
+      __C89_NAMELESS union {
+        DWORD Flags;
+        __C89_NAMELESS struct {
+          DWORD SmtBranchTargetIsolation  :1;
+          DWORD IsolateSecurityDomain  :1;
+          DWORD DisablePageCombine  :1;
+          DWORD SpeculativeStoreBypassDisable  :1;
+          DWORD ReservedFlags  :28;
+        };
+      };
+    } PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY, *PPROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY;
 
     typedef struct _JOBOBJECT_BASIC_ACCOUNTING_INFORMATION {
       LARGE_INTEGER TotalUserTime;

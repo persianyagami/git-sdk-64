@@ -721,7 +721,7 @@ sqlite3&gt; COMMIT;
 
     </p></li><li><p> <b>SET DEFAULT</b>: The "SET DEFAULT" actions are similar to
       "SET NULL",
-      except that each of the child key columns is set to contain the columns 
+      except that each of the child key columns is set to contain the column's 
       default value instead of NULL. Refer to the <a href="lang_createtable.html">CREATE TABLE</a> 
       documentation for details on how default values are assigned to table
       columns.
@@ -931,7 +931,7 @@ null
          that is the parent table of one or more foreign key constraints, the
          definitions of the foreign key constraints are modified to refer to
          the parent table by its new name. The text of the child CREATE
-         TABLE statement or statements stored in the sqlite_master table are 
+         TABLE statement or statements stored in the <a href="schematab.html">sqlite_schema table</a> are 
          modified to reflect the new parent table name.
   </p></li></ul>
 

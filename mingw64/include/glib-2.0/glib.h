@@ -82,6 +82,7 @@
 #include <glib/gstrfuncs.h>
 #include <glib/gstringchunk.h>
 #include <glib/gstring.h>
+#include <glib/gstrvbuilder.h>
 #include <glib/gtestutils.h>
 #include <glib/gthread.h>
 #include <glib/gthreadpool.h>
@@ -91,7 +92,7 @@
 #include <glib/gtree.h>
 #include <glib/gtypes.h>
 #include <glib/gunicode.h>
-#include <glib/gurifuncs.h>
+#include <glib/guri.h>
 #include <glib/gutils.h>
 #include <glib/guuid.h>
 #include <glib/gvariant.h>

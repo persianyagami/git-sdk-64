@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<meta name="generator" content="Asciidoctor 2.0.10"/>
+<meta name="generator" content="Asciidoctor 2.0.13"/>
 <title>git-config(1)</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700"/>
 <style>
@@ -47,7 +47,7 @@ textarea{overflow:auto;vertical-align:top}
 table{border-collapse:collapse;border-spacing:0}
 *,*::before,*::after{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}
 html,body{font-size:100%}
-body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;font-weight:400;font-style:normal;line-height:1;position:relative;cursor:auto;tab-size:4;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
+body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;font-weight:400;font-style:normal;line-height:1;position:relative;cursor:auto;tab-size:4;word-wrap:anywhere;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
 a:hover{cursor:pointer}
 img,object,embed{max-width:100%;height:auto}
 object,embed{height:100%}
@@ -62,10 +62,8 @@ img{-ms-interpolation-mode:bicubic}
 img,object,svg{display:inline-block;vertical-align:middle}
 textarea{height:auto;min-height:50px}
 select{width:100%}
-.center{margin-left:auto;margin-right:auto}
-.stretch{width:100%}
 .subheader,.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{line-height:1.45;color:#7a2518;font-weight:400;margin-top:0;margin-bottom:.25em}
-div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0;direction:ltr}
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0}
 a{color:#2156a5;text-decoration:underline;line-height:inherit}
 a:hover,a:focus{color:#1d4b8f}
 a img{border:0}
@@ -96,28 +94,28 @@ dl dd{margin-bottom:1.25em}
 abbr,acronym{text-transform:uppercase;font-size:90%;color:rgba(0,0,0,.8);border-bottom:1px dotted #ddd;cursor:help}
 abbr{text-transform:none}
 blockquote{margin:0 0 1.25em;padding:.5625em 1.25em 0 1.1875em;border-left:1px solid #ddd}
-blockquote cite{display:block;font-size:.9375em;color:rgba(0,0,0,.6)}
-blockquote cite::before{content:"\2014 \0020"}
-blockquote cite a,blockquote cite a:visited{color:rgba(0,0,0,.6)}
 blockquote,blockquote p{line-height:1.6;color:rgba(0,0,0,.85)}
 @media screen and (min-width:768px){h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2}
 h1{font-size:2.75em}
 h2{font-size:2.3125em}
 h3,#toctitle,.sidebarblock>.content>.title{font-size:1.6875em}
 h4{font-size:1.4375em}}
-table{background:#fff;margin-bottom:1.25em;border:solid 1px #dedede}
+table{background:#fff;margin-bottom:1.25em;border:solid 1px #dedede;word-wrap:normal}
 table thead,table tfoot{background:#f7f8f7}
 table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:.5em .625em .625em;font-size:inherit;color:rgba(0,0,0,.8);text-align:left}
 table tr th,table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8)}
 table tr.even,table tr.alt{background:#f8f8f7}
-table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{display:table-cell;line-height:1.6}
+table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{line-height:1.6}
 h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2;word-spacing:-.05em}
 h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title strong,h4 strong,h5 strong,h6 strong{font-weight:400}
+.center{margin-left:auto;margin-right:auto}
+.stretch{width:100%}
 .clearfix::before,.clearfix::after,.float-group::before,.float-group::after{content:" ";display:table}
 .clearfix::after,.float-group::after{clear:both}
-:not(pre):not([class^=L])>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background:#f7f7f8;-webkit-border-radius:4px;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed;word-wrap:break-word}
-:not(pre)>code.nobreak{word-wrap:normal}
-:not(pre)>code.nowrap{white-space:nowrap}
+:not(pre).nobreak{word-wrap:normal}
+:not(pre).nowrap{white-space:nowrap}
+:not(pre).pre-wrap{white-space:pre-wrap}
+:not(pre):not([class^=L])>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background:#f7f7f8;-webkit-border-radius:4px;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed}
 pre{color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;line-height:1.45;text-rendering:optimizeSpeed}
 pre code,pre pre{color:inherit;font-size:inherit;line-height:inherit}
 pre>code{display:block}
@@ -182,7 +180,7 @@ body.toc2.toc-right{padding-left:0;padding-right:20em}}
 #content #toc{border-style:solid;border-width:1px;border-color:#e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;-webkit-border-radius:4px;border-radius:4px}
 #content #toc>:first-child{margin-top:0}
 #content #toc>:last-child{margin-bottom:0}
-#footer{max-width:100%;background:rgba(0,0,0,.8);padding:1.25em}
+#footer{max-width:none;background:rgba(0,0,0,.8);padding:1.25em}
 #footer-text{color:rgba(255,255,255,.8);line-height:1.44}
 #content{margin-bottom:.625em}
 .sect1{padding-bottom:.625em}
@@ -205,7 +203,7 @@ table.tableblock #preamble>.sectionbody>[class="paragraph"]:first-of-type p{font
 .admonitionblock>table td.icon{text-align:center;width:80px}
 .admonitionblock>table td.icon img{max-width:none}
 .admonitionblock>table td.icon .title{font-weight:bold;font-family:"Open Sans","DejaVu Sans",sans-serif;text-transform:uppercase}
-.admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #dddddf;color:rgba(0,0,0,.6)}
+.admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #dddddf;color:rgba(0,0,0,.6);word-wrap:anywhere}
 .admonitionblock>table td.content>:last-child>:last-child{margin-bottom:0}
 .exampleblock>.content{border-style:solid;border-width:1px;border-color:#e6e6e6;margin-bottom:1.25em;padding:1.25em;background:#fff;-webkit-border-radius:4px;border-radius:4px}
 .exampleblock>.content>:first-child{margin-top:0}
@@ -215,7 +213,7 @@ table.tableblock #preamble>.sectionbody>[class="paragraph"]:first-of-type p{font
 .sidebarblock>:last-child{margin-bottom:0}
 .sidebarblock>.content>.title{color:#7a2518;margin-top:0;text-align:center}
 .exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
-.literalblock pre,.listingblock>.content>pre{-webkit-border-radius:4px;border-radius:4px;word-wrap:break-word;overflow-x:auto;padding:1em;font-size:.8125em}
+.literalblock pre,.listingblock>.content>pre{-webkit-border-radius:4px;border-radius:4px;overflow-x:auto;padding:1em;font-size:.8125em}
 @media screen and (min-width:768px){.literalblock pre,.listingblock>.content>pre{font-size:.90625em}}
 @media screen and (min-width:1280px){.literalblock pre,.listingblock>.content>pre{font-size:1em}}
 .literalblock pre,.listingblock>.content>pre:not(.highlight),.listingblock>.content>pre[class="highlight"],.listingblock>.content>pre[class^="highlight "]{background:#f7f7f8}
@@ -260,22 +258,21 @@ pre.pygments .lineno::before{content:"";margin-right:-.125em}
 .quoteblock.excerpt>blockquote,.quoteblock .quoteblock{padding:0 0 .25em 1em;border-left:.25em solid #dddddf}
 .quoteblock.excerpt,.quoteblock .quoteblock{margin-left:0}
 .quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{color:inherit;font-size:1.0625rem}
-.quoteblock.excerpt .attribution,.quoteblock .quoteblock .attribution{color:inherit;text-align:left;margin-right:0}
-table.tableblock{max-width:100%;border-collapse:separate}
+.quoteblock.excerpt .attribution,.quoteblock .quoteblock .attribution{color:inherit;font-size:.85rem;text-align:left;margin-right:0}
 p.tableblock:last-child{margin-bottom:0}
+td.tableblock>.content{margin-bottom:1.25em;word-wrap:anywhere}
 td.tableblock>.content>:last-child{margin-bottom:-1.25em}
-td.tableblock>.content>:last-child.sidebarblock{margin-bottom:0}
 table.tableblock,th.tableblock,td.tableblock{border:0 solid #dedede}
-table.grid-all>thead>tr>.tableblock,table.grid-all>tbody>tr>.tableblock{border-width:0 1px 1px 0}
-table.grid-all>tfoot>tr>.tableblock{border-width:1px 1px 0 0}
-table.grid-cols>*>tr>.tableblock{border-width:0 1px 0 0}
-table.grid-rows>thead>tr>.tableblock,table.grid-rows>tbody>tr>.tableblock{border-width:0 0 1px}
-table.grid-rows>tfoot>tr>.tableblock{border-width:1px 0 0}
-table.grid-all>*>tr>.tableblock:last-child,table.grid-cols>*>tr>.tableblock:last-child{border-right-width:0}
-table.grid-all>tbody>tr:last-child>.tableblock,table.grid-all>thead:last-child>tr>.tableblock,table.grid-rows>tbody>tr:last-child>.tableblock,table.grid-rows>thead:last-child>tr>.tableblock{border-bottom-width:0}
+table.grid-all>*>tr>*{border-width:1px}
+table.grid-cols>*>tr>*{border-width:0 1px}
+table.grid-rows>*>tr>*{border-width:1px 0}
 table.frame-all{border-width:1px}
+table.frame-ends{border-width:1px 0}
 table.frame-sides{border-width:0 1px}
-table.frame-topbot,table.frame-ends{border-width:1px 0}
+table.frame-none>colgroup+*>:first-child>*,table.frame-sides>colgroup+*>:first-child>*{border-top-width:0}
+table.frame-none>:last-child>:last-child>*,table.frame-sides>:last-child>:last-child>*{border-bottom-width:0}
+table.frame-none>*>tr>:first-child,table.frame-ends>*>tr>:first-child{border-left-width:0}
+table.frame-none>*>tr>:last-child,table.frame-ends>*>tr>:last-child{border-right-width:0}
 table.stripes-all tr,table.stripes-odd tr:nth-of-type(odd),table.stripes-even tr:nth-of-type(even),table.stripes-hover tr:hover{background:#f8f8f7}
 th.halign-left,td.halign-left{text-align:left}
 th.halign-right,td.halign-right{text-align:right}
@@ -284,7 +281,7 @@ th.valign-top,td.valign-top{vertical-align:top}
 th.valign-bottom,td.valign-bottom{vertical-align:bottom}
 th.valign-middle,td.valign-middle{vertical-align:middle}
 table thead th,table tfoot th{font-weight:bold}
-tbody tr th{display:table-cell;line-height:1.6;background:#f7f8f7}
+tbody tr th{background:#f7f8f7}
 tbody tr th,tbody tr th p,tfoot tr th,tfoot tr th p{color:rgba(0,0,0,.8);font-weight:bold}
 p.tableblock>code:only-child{background:none;padding:0}
 p.tableblock{font-size:1em}
@@ -313,6 +310,7 @@ ol.lowergreek{list-style-type:lower-greek}
 .hdlist>table>tbody>tr,.colist>table>tbody>tr{background:none}
 td.hdlist1,td.hdlist2{vertical-align:top;padding:0 .625em}
 td.hdlist1{font-weight:bold;padding-bottom:1.25em}
+td.hdlist2{word-wrap:anywhere}
 .literalblock+.colist,.listingblock+.colist{margin-top:-.5em}
 .colist td:not([class]):first-child{padding:.4em .75em 0;line-height:1;vertical-align:top}
 .colist td:not([class]):first-child img{max-width:none}
@@ -385,7 +383,7 @@ a span.icon>.fa{cursor:inherit}
 .admonitionblock td.icon .icon-warning::before{content:"\f071";color:#bf6900}
 .admonitionblock td.icon .icon-caution::before{content:"\f06d";color:#bf3400}
 .admonitionblock td.icon .icon-important::before{content:"\f06a";color:#bf0000}
-.conum[data-value]{display:inline-block;color:#fff!important;background:rgba(0,0,0,.8);-webkit-border-radius:100px;border-radius:100px;text-align:center;font-size:.75em;width:1.67em;height:1.67em;line-height:1.67em;font-family:"Open Sans","DejaVu Sans",sans-serif;font-style:normal;font-weight:bold}
+.conum[data-value]{display:inline-block;color:#fff!important;background:rgba(0,0,0,.8);-webkit-border-radius:50%;border-radius:50%;text-align:center;font-size:.75em;width:1.67em;height:1.67em;line-height:1.67em;font-family:"Open Sans","DejaVu Sans",sans-serif;font-style:normal;font-weight:bold}
 .conum[data-value] *{color:#fff!important}
 .conum[data-value]+b{display:none}
 .conum[data-value]::after{content:attr(data-value)}
@@ -412,6 +410,7 @@ thead{display:table-header-group}
 svg{max-width:100%}
 p,blockquote,dt,td.content{font-size:1em;orphans:3;widows:3}
 h2,h3,#toctitle,.sidebarblock>.content>.title{page-break-after:avoid}
+#header,#content,#footnotes,#footer{max-width:none}
 #toc,.sidebarblock,.exampleblock>.content{background:none!important}
 #toc{border-bottom:1px solid #dddddf!important;padding-bottom:0!important}
 body.book #header{text-align:center}
@@ -449,15 +448,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="_synopsis">SYNOPSIS</h2>
 <div class="sectionbody">
 <div class="verseblock">
-<pre class="content"><em>git config</em> [&lt;file-option&gt;] [--type=&lt;type&gt;] [--show-origin] [--show-scope] [-z|--null] name [value [value_regex]]
+<pre class="content"><em>git config</em> [&lt;file-option&gt;] [--type=&lt;type&gt;] [--fixed-value] [--show-origin] [--show-scope] [-z|--null] name [value [value-pattern]]
 <em>git config</em> [&lt;file-option&gt;] [--type=&lt;type&gt;] --add name value
-<em>git config</em> [&lt;file-option&gt;] [--type=&lt;type&gt;] --replace-all name value [value_regex]
-<em>git config</em> [&lt;file-option&gt;] [--type=&lt;type&gt;] [--show-origin] [--show-scope] [-z|--null] --get name [value_regex]
-<em>git config</em> [&lt;file-option&gt;] [--type=&lt;type&gt;] [--show-origin] [--show-scope] [-z|--null] --get-all name [value_regex]
-<em>git config</em> [&lt;file-option&gt;] [--type=&lt;type&gt;] [--show-origin] [--show-scope] [-z|--null] [--name-only] --get-regexp name_regex [value_regex]
+<em>git config</em> [&lt;file-option&gt;] [--type=&lt;type&gt;] [--fixed-value] --replace-all name value [value-pattern]
+<em>git config</em> [&lt;file-option&gt;] [--type=&lt;type&gt;] [--show-origin] [--show-scope] [-z|--null] [--fixed-value] --get name [value-pattern]
+<em>git config</em> [&lt;file-option&gt;] [--type=&lt;type&gt;] [--show-origin] [--show-scope] [-z|--null] [--fixed-value] --get-all name [value-pattern]
+<em>git config</em> [&lt;file-option&gt;] [--type=&lt;type&gt;] [--show-origin] [--show-scope] [-z|--null] [--fixed-value] [--name-only] --get-regexp name_regex [value-pattern]
 <em>git config</em> [&lt;file-option&gt;] [--type=&lt;type&gt;] [-z|--null] --get-urlmatch name URL
-<em>git config</em> [&lt;file-option&gt;] --unset name [value_regex]
-<em>git config</em> [&lt;file-option&gt;] --unset-all name [value_regex]
+<em>git config</em> [&lt;file-option&gt;] [--fixed-value] --unset name [value-pattern]
+<em>git config</em> [&lt;file-option&gt;] [--fixed-value] --unset-all name [value-pattern]
 <em>git config</em> [&lt;file-option&gt;] --rename-section old_name new_name
 <em>git config</em> [&lt;file-option&gt;] --remove-section name
 <em>git config</em> [&lt;file-option&gt;] [--show-origin] [--show-scope] [-z|--null] [--name-only] -l | --list
@@ -478,10 +477,13 @@ escaped.</p>
 <div class="paragraph">
 <p>Multiple lines can be added to an option by using the <code>--add</code> option.
 If you want to update or unset an option which can occur on multiple
-lines, a POSIX regexp <code>value_regex</code> needs to be given.  Only the
-existing values that match the regexp are updated or unset.  If
-you want to handle the lines that do <strong>not</strong> match the regex, just
-prepend a single exclamation mark in front (see also <a href="#EXAMPLES">EXAMPLES</a>).</p>
+lines, a <code>value-pattern</code> (which is an extended regular expression,
+unless the <code>--fixed-value</code> option is given) needs to be given.  Only the
+existing values that match the pattern are updated or unset.  If
+you want to handle the lines that do <strong>not</strong> match the pattern, just
+prepend a single exclamation mark in front (see also <a href="#EXAMPLES">EXAMPLES</a>),
+but note that this only works when the <code>--fixed-value</code> option is not
+in use.</p>
 </div>
 <div class="paragraph">
 <p>The <code>--type=&lt;type&gt;</code> option instructs <em>git config</em> to ensure that incoming and
@@ -545,12 +547,12 @@ codes are:</p>
 <dt class="hdlist1">--replace-all</dt>
 <dd>
 <p>Default behavior is to replace at most one line. This replaces
-all lines matching the key (and optionally the value_regex).</p>
+all lines matching the key (and optionally the <code>value-pattern</code>).</p>
 </dd>
 <dt class="hdlist1">--add</dt>
 <dd>
 <p>Adds a new line to the option without altering any existing
-values.  This is the same as providing <em>^$</em> as the value_regex
+values.  This is the same as providing <em>^$</em> as the <code>value-pattern</code>
 in <code>--replace-all</code>.</p>
 </dd>
 <dt class="hdlist1">--get</dt>
@@ -658,6 +660,13 @@ ways to spell blob names.</p>
 <dt class="hdlist1">--list</dt>
 <dd>
 <p>List all variables set in config file, along with their values.</p>
+</dd>
+<dt class="hdlist1">--fixed-value</dt>
+<dd>
+<p>When used with the <code>value-pattern</code> argument, treat <code>value-pattern</code> as
+an exact string instead of a regular expression. This will restrict
+the name/value pairs that are matched to only those where the value
+is exactly equal to the <code>value-pattern</code>.</p>
 </dd>
 <dt class="hdlist1">--type &lt;type&gt;</dt>
 <dd>
@@ -877,6 +886,12 @@ can specify any filename you want.</p>
 Using the "--global" option forces this to ~/.gitconfig. Using the
 "--system" option forces this to $(prefix)/etc/gitconfig.</p>
 </dd>
+<dt class="hdlist1">GIT_CONFIG_GLOBAL</dt>
+<dt class="hdlist1">GIT_CONFIG_SYSTEM</dt>
+<dd>
+<p>Take the configuration from the given files instead from global or
+system-level configuration. See <a href="git.html">git(1)</a> for details.</p>
+</dd>
 <dt class="hdlist1">GIT_CONFIG_NOSYSTEM</dt>
 <dd>
 <p>Whether to skip reading settings from the system-wide
@@ -886,6 +901,28 @@ $(prefix)/etc/gitconfig file. See <a href="git.html">git(1)</a> for details.</p>
 </div>
 <div class="paragraph">
 <p>See also <a href="#FILES">FILES</a>.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">GIT_CONFIG_COUNT</dt>
+<dt class="hdlist1">GIT_CONFIG_KEY_&lt;n&gt;</dt>
+<dt class="hdlist1">GIT_CONFIG_VALUE_&lt;n&gt;</dt>
+<dd>
+<p>If GIT_CONFIG_COUNT is set to a positive number, all environment pairs
+GIT_CONFIG_KEY_&lt;n&gt; and GIT_CONFIG_VALUE_&lt;n&gt; up to that number will be
+added to the process&#8217;s runtime configuration. The config pairs are
+zero-indexed. Any missing key or value is treated as an error. An empty
+GIT_CONFIG_COUNT is treated the same as GIT_CONFIG_COUNT=0, namely no
+pairs are processed. These environment variables will override values
+in configuration files, but will be overridden by any explicit options
+passed via <code>git -c</code>.</p>
+<div class="paragraph">
+<p>This is useful for cases where you want to spawn multiple git commands
+with a common configuration but cannot depend on a configuration file,
+for example when writing scripts.</p>
+</div>
+</dd>
+</dl>
 </div>
 </div>
 </div>
@@ -1107,7 +1144,7 @@ in the section header, like in the example below:</p>
 newline and the null byte. Doublequote <code>"</code> and backslash can be included
 by escaping them as <code>\"</code> and <code>\\</code>, respectively. Backslashes preceding
 other characters are dropped when reading; for example, <code>\t</code> is read as
-<code>t</code> and <code>\0</code> is read as <code>0</code> Section headers cannot span multiple lines.
+<code>t</code> and <code>\0</code> is read as <code>0</code>. Section headers cannot span multiple lines.
 Variables may belong directly to a section or to a given subsection. You
 can have <code>[section]</code> if you have <code>[section "subsection"]</code>, but you don&#8217;t
 need to.</p>
@@ -1128,7 +1165,7 @@ and <code>-</code>, and must start with an alphabetic character.</p>
 </div>
 <div class="paragraph">
 <p>A line that defines a value can be continued to the next line by
-ending it with a <code>\</code>; the backquote and the end-of-line are
+ending it with a <code>\</code>; the backslash and the end-of-line are
 stripped.  Leading whitespaces after <em>name =</em>, the remainder of the
 line after the first comment character <em>#</em> or <em>;</em>, and trailing
 whitespaces of the line are discarded unless they are enclosed in
@@ -1376,7 +1413,7 @@ and attributes (as many as you want), separated by spaces.</p>
 <p>The basic colors accepted are <code>normal</code>, <code>black</code>, <code>red</code>, <code>green</code>, <code>yellow</code>,
 <code>blue</code>, <code>magenta</code>, <code>cyan</code> and <code>white</code>.  The first color given is the
 foreground; the second is the background.  All the basic colors except
-<code>normal</code> have a bright variant that can be speficied by prefixing the
+<code>normal</code> have a bright variant that can be specified by prefixing the
 color with <code>bright</code>, like <code>brightred</code>.</p>
 </div>
 <div class="paragraph">
@@ -1452,9 +1489,8 @@ that the check is disabled.</p>
 <dt class="hdlist1">pushUpdateRejected</dt>
 <dd>
 <p>Set this variable to <em>false</em> if you want to disable
-<em>pushNonFFCurrent</em>,
-<em>pushNonFFMatching</em>, <em>pushAlreadyExists</em>,
-<em>pushFetchFirst</em>, and <em>pushNeedsForce</em>
+<em>pushNonFFCurrent</em>, <em>pushNonFFMatching</em>, <em>pushAlreadyExists</em>,
+<em>pushFetchFirst</em>, <em>pushNeedsForce</em>, and <em>pushRefNeedsUpdate</em>
 simultaneously.</p>
 </dd>
 <dt class="hdlist1">pushNonFFCurrent</dt>
@@ -1495,6 +1531,12 @@ remote ref namespace the source belongs in, but where
 we can still suggest that the user push to either
 refs/heads/* or refs/tags/* based on the type of the
 source object.</p>
+</dd>
+<dt class="hdlist1">pushRefNeedsUpdate</dt>
+<dd>
+<p>Shown when <a href="git-push.html">git-push(1)</a> rejects a forced update of
+a branch when its remote-tracking ref has updates that we
+do not have locally.</p>
 </dd>
 <dt class="hdlist1">statusAheadBehind</dt>
 <dd>
@@ -1609,6 +1651,12 @@ the index.</p>
 <p>Advice shown if a user runs the add command without providing
 the pathspec parameter.</p>
 </dd>
+<dt class="hdlist1">updateSparsePath</dt>
+<dd>
+<p>Advice shown when either <a href="git-add.html">git-add(1)</a> or <a href="git-rm.html">git-rm(1)</a>
+is asked to update index entries outside the current sparse
+checkout.</p>
+</dd>
 </dl>
 </div>
 </div>
@@ -1690,23 +1738,60 @@ Defaults to <code>true</code> on Windows, and <code>false</code> elsewhere.</p>
 </dd>
 <dt class="hdlist1">core.fsmonitor</dt>
 <dd>
-<p>If set, the value of this variable is used as a command which
-will identify all files that may have changed since the
-requested date/time. This information is used to speed up git by
-avoiding unnecessary processing of files that have not changed.
-See the "fsmonitor-watchman" section of <a href="githooks.html">githooks(5)</a>.</p>
+<p>If set, this variable contains the pathname of the "fsmonitor"
+hook command.</p>
+<div class="paragraph">
+<p>This hook command is used to identify all files that may have changed
+since the requested date/time. This information is used to speed up
+git by avoiding unnecessary scanning of files that have not changed.</p>
+</div>
+<div class="paragraph">
+<p>See the "fsmonitor-watchman" section of <a href="githooks.html">githooks(5)</a>.</p>
+</div>
+<div class="paragraph">
+<p>Note: The value of this config setting is ignored if the (experimental)
+built-in file system monitor is enabled (see <code>core.useBuiltinFSMonitor</code>).</p>
+</div>
 </dd>
 <dt class="hdlist1">core.fsmonitorHookVersion</dt>
 <dd>
-<p>Sets the version of hook that is to be used when calling fsmonitor.
-There are currently versions 1 and 2. When this is not set,
+<p>Sets the protocol version to be used when invoking the
+"fsmonitor" hook.</p>
+<div class="paragraph">
+<p>There are currently versions 1 and 2. When this is not set,
 version 2 will be tried first and if it fails then version 1
 will be tried. Version 1 uses a timestamp as input to determine
 which files have changes since that time but some monitors
-like watchman have race conditions when used with a timestamp.
+like Watchman have race conditions when used with a timestamp.
 Version 2 uses an opaque string so that the monitor can return
 something that can be used to determine what files have changed
 without race conditions.</p>
+</div>
+<div class="paragraph">
+<p>Note: The value of this config setting is ignored if the
+built-in file system monitor is enabled (see <code>core.useBuiltinFSMonitor</code>).</p>
+</div>
+</dd>
+<dt class="hdlist1">core.useBuiltinFSMonitor</dt>
+<dd>
+<p>(EXPERIMENTAL) If set to true, enable the built-in file system monitor
+daemon for this working directory (<a href="git-fsmonitor&#8212;&#8203;daemon.html">git-fsmonitor&#8212;&#8203;daemon(1)</a>).</p>
+<div class="paragraph">
+<p>Like hook-based file system monitors, the built-in file system monitor
+can speed up Git commands that need to refresh the Git index
+(e.g. <code>git status</code>) in a working directory with many files.  The
+built-in monitor eliminates the need to install and maintain an
+external third-party tool.</p>
+</div>
+<div class="paragraph">
+<p>The built-in file system monitor is currently available only on a
+limited set of supported platforms.  Currently, this includes Windows
+and MacOS.</p>
+</div>
+<div class="paragraph">
+<p>Note: if this config setting is set to <code>true</code>, the values of
+<code>core.fsmonitor</code> and <code>core.fsmonitorHookVersion</code> are ignored.</p>
+</div>
 </dd>
 <dt class="hdlist1">core.trustctime</dt>
 <dd>
@@ -2075,7 +2160,7 @@ the largest projects.  You probably do not need to adjust this value.</p>
 </dd>
 <dt class="hdlist1">core.deltaBaseCacheLimit</dt>
 <dd>
-<p>Maximum number of bytes to reserve for caching base objects
+<p>Maximum number of bytes per thread to reserve for caching base objects
 that may be referenced by multiple deltified objects.  By storing the
 entire decompressed base objects in a cache Git is able
 to avoid unpacking and decompressing frequently used base
@@ -2350,8 +2435,8 @@ option was given on the command line. See <a href="git.html">git(1)</a> and
 <dt class="hdlist1">core.multiPackIndex</dt>
 <dd>
 <p>Use the multi-pack-index file to track multiple packfiles using a
-single index. See <a href="technical/multi-pack-index.html">the
-multi-pack-index design document</a>.</p>
+single index. See <a href="git-multi-pack-index.html">git-multi-pack-index(1)</a> for more
+information. Defaults to true.</p>
 </dd>
 <dt class="hdlist1">core.sparseCheckout</dt>
 <dd>
@@ -2372,6 +2457,8 @@ unspecified or set to "auto", an appropriate value is
 computed based on the approximate number of packed objects
 in your repository, which hopefully is enough for
 abbreviated object names to stay unique for some time.
+If set to "no", no abbreviation is made and the object names
+are shown in their full length.
 The minimum length is 4.</p>
 </dd>
 <dt class="hdlist1">add.ignoreErrors</dt>
@@ -2628,29 +2715,70 @@ working repository in gitweb (see <a href="git-instaweb.html">git-instaweb(1)</a
 </dd>
 <dt class="hdlist1">checkout.defaultRemote</dt>
 <dd>
-<p>When you run <em>git checkout &lt;something&gt;</em>
-or <em>git switch &lt;something&gt;</em> and only have one
+<p>When you run <code>git checkout &lt;something&gt;</code>
+or <code>git switch &lt;something&gt;</code> and only have one
 remote, it may implicitly fall back on checking out and
-tracking e.g. <em>origin/&lt;something&gt;</em>. This stops working as soon
-as you have more than one remote with a <em>&lt;something&gt;</em>
+tracking e.g. <code>origin/&lt;something&gt;</code>. This stops working as soon
+as you have more than one remote with a <code>&lt;something&gt;</code>
 reference. This setting allows for setting the name of a
 preferred remote that should always win when it comes to
 disambiguation. The typical use-case is to set this to
 <code>origin</code>.</p>
 <div class="paragraph">
 <p>Currently this is used by <a href="git-switch.html">git-switch(1)</a> and
-<a href="git-checkout.html">git-checkout(1)</a> when <em>git checkout &lt;something&gt;</em>
-or <em>git switch &lt;something&gt;</em>
-will checkout the <em>&lt;something&gt;</em> branch on another remote,
-and by <a href="git-worktree.html">git-worktree(1)</a> when <em>git worktree add</em> refers to a
+<a href="git-checkout.html">git-checkout(1)</a> when <code>git checkout &lt;something&gt;</code>
+or <code>git switch &lt;something&gt;</code>
+will checkout the <code>&lt;something&gt;</code> branch on another remote,
+and by <a href="git-worktree.html">git-worktree(1)</a> when <code>git worktree add</code> refers to a
 remote branch. This setting might be used for other checkout-like
 commands or functionality in the future.</p>
 </div>
+</dd>
+<dt class="hdlist1">checkout.guess</dt>
+<dd>
+<p>Provides the default value for the <code>--guess</code> or <code>--no-guess</code>
+option in <code>git checkout</code> and <code>git switch</code>. See
+<a href="git-switch.html">git-switch(1)</a> and <a href="git-checkout.html">git-checkout(1)</a>.</p>
+</dd>
+<dt class="hdlist1">checkout.workers</dt>
+<dd>
+<p>The number of parallel workers to use when updating the working tree.
+The default is one, i.e. sequential execution. If set to a value less
+than one, Git will use as many workers as the number of logical cores
+available. This setting and <code>checkout.thresholdForParallelism</code> affect
+all commands that perform checkout. E.g. checkout, clone, reset,
+sparse-checkout, etc.</p>
+<div class="paragraph">
+<p>Note: parallel checkout usually delivers better performance for repositories
+located on SSDs or over NFS. For repositories on spinning disks and/or machines
+with a small number of cores, the default sequential checkout often performs
+better. The size and compression level of a repository might also influence how
+well the parallel version performs.</p>
+</div>
+</dd>
+<dt class="hdlist1">checkout.thresholdForParallelism</dt>
+<dd>
+<p>When running parallel checkout with a small number of files, the cost
+of subprocess spawning and inter-process communication might outweigh
+the parallelization gains. This setting allows to define the minimum
+number of files for which parallel checkout should be attempted. The
+default is 100.</p>
 </dd>
 <dt class="hdlist1">clean.requireForce</dt>
 <dd>
 <p>A boolean to make git-clean do nothing unless given -f,
 -i or -n.   Defaults to true.</p>
+</dd>
+<dt class="hdlist1">clone.defaultRemoteName</dt>
+<dd>
+<p>The name of the remote to create when cloning a repository.  Defaults to
+<code>origin</code>, and can be overridden by passing the <code>--origin</code> command-line
+option to <a href="git-clone.html">git-clone(1)</a>.</p>
+</dd>
+<dt class="hdlist1">clone.rejectShallow</dt>
+<dd>
+<p>Reject to clone a repository if it is a shallow one, can be overridden by
+passing option <code>--reject-shallow</code> in command line. See <a href="git-clone.html">git-clone(1)</a></p>
 </dd>
 <dt class="hdlist1">color.advice</dt>
 <dd>
@@ -3036,6 +3164,24 @@ new commit messages.</p>
 <p>A boolean or int to specify the level of verbose with <code>git commit</code>.
 See <a href="git-commit.html">git-commit(1)</a>.</p>
 </dd>
+<dt class="hdlist1">commitGraph.generationVersion</dt>
+<dd>
+<p>Specifies the type of generation number version to use when writing
+or reading the commit-graph file. If version 1 is specified, then
+the corrected commit dates will not be written or read. Defaults to
+2.</p>
+</dd>
+<dt class="hdlist1">commitGraph.maxNewFilters</dt>
+<dd>
+<p>Specifies the default value for the <code>--max-new-filters</code> option of <code>git
+commit-graph write</code> (c.f., <a href="git-commit-graph.html">git-commit-graph(1)</a>).</p>
+</dd>
+<dt class="hdlist1">commitGraph.readChangedPaths</dt>
+<dd>
+<p>If true, then git will use the changed-path Bloom filters in the
+commit-graph file (if it exists, and they are present). Defaults to
+true. See <a href="git-commit-graph.html">git-commit-graph(1)</a> for more information.</p>
+</dd>
 <dt class="hdlist1">credential.helper</dt>
 <dd>
 <p>Specify an external helper to be called when a username or
@@ -3072,6 +3218,13 @@ matched.</p>
 <dt class="hdlist1">credentialCache.ignoreSIGHUP</dt>
 <dd>
 <p>Tell git-credential-cache&#8212;&#8203;daemon to ignore SIGHUP, instead of quitting.</p>
+</dd>
+<dt class="hdlist1">credentialStore.lockTimeoutMS</dt>
+<dd>
+<p>The length of time, in milliseconds, for git-credential-store to retry
+when trying to lock the credentials file. Value 0 means not to retry at
+all; -1 means to try indefinitely. Default is 1000 (i.e., retry for
+1s).</p>
 </dd>
 <dt class="hdlist1">completion.commands</dt>
 <dd>
@@ -3191,7 +3344,9 @@ this setting when reporting uncommitted changes. Setting it to
 <em>all</em> disables the submodule summary normally shown by <em>git commit</em>
 and <em>git status</em> when <code>status.submoduleSummary</code> is set unless it is
 overridden by using the --ignore-submodules command-line option.
-The <em>git submodule</em> commands are not affected by this setting.</p>
+The <em>git submodule</em> commands are not affected by this setting.
+By default this is set to untracked so that any untracked
+submodules are ignored.</p>
 </dd>
 <dt class="hdlist1">diff.mnemonicPrefix</dt>
 <dd>
@@ -3227,6 +3382,11 @@ the order of the prefixes:</p>
 <dt class="hdlist1">diff.noprefix</dt>
 <dd>
 <p>If set, <em>git diff</em> does not show any source or destination prefix.</p>
+</dd>
+<dt class="hdlist1">diff.relative</dt>
+<dd>
+<p>If set to <em>true</em>, <em>git diff</em> does not show changes outside of the directory
+and show pathnames relative to the current directory.</p>
 </dd>
 <dt class="hdlist1">diff.orderFile</dt>
 <dd>
@@ -3334,6 +3494,9 @@ is defined.</p>
 <p>bc3</p>
 </li>
 <li>
+<p>bc4</p>
+</li>
+<li>
 <p>codecompare</p>
 </li>
 <li>
@@ -3361,6 +3524,9 @@ is defined.</p>
 <p>gvimdiff</p>
 </li>
 <li>
+<p>gvimdiff1</p>
+</li>
+<li>
 <p>gvimdiff2</p>
 </li>
 <li>
@@ -3376,6 +3542,18 @@ is defined.</p>
 <p>meld</p>
 </li>
 <li>
+<p>nvimdiff</p>
+</li>
+<li>
+<p>nvimdiff1</p>
+</li>
+<li>
+<p>nvimdiff2</p>
+</li>
+<li>
+<p>nvimdiff3</p>
+</li>
+<li>
 <p>opendiff</p>
 </li>
 <li>
@@ -3389,6 +3567,9 @@ is defined.</p>
 </li>
 <li>
 <p>vimdiff</p>
+</li>
+<li>
+<p>vimdiff1</p>
 </li>
 <li>
 <p>vimdiff2</p>
@@ -3482,6 +3663,17 @@ of the diff post-image.</p>
 <dd>
 <p>Prompt before each invocation of the diff tool.</p>
 </dd>
+<dt class="hdlist1">extensions.objectFormat</dt>
+<dd>
+<p>Specify the hash algorithm to use.  The acceptable values are <code>sha1</code> and
+<code>sha256</code>.  If not specified, <code>sha1</code> is assumed.  It is an error to specify
+this key unless <code>core.repositoryFormatVersion</code> is 1.</p>
+<div class="paragraph">
+<p>Note that this setting should only be set by <a href="git-init.html">git-init(1)</a> or
+<a href="git-clone.html">git-clone(1)</a>.  Trying to change it after initialization will not
+work and will produce hard-to-diagnose issues.</p>
+</div>
+</dd>
 <dt class="hdlist1">fastimport.unpackLimit</dt>
 <dd>
 <p>If the number of objects imported by <a href="git-fast-import.html">git-fast-import(1)</a>
@@ -3512,15 +3704,6 @@ features. The new default values are:</p>
 <li>
 <p><code>fetch.negotiationAlgorithm=skipping</code> may improve fetch negotiation times by
 skipping more commits at a time, reducing the number of round trips.</p>
-</li>
-<li>
-<p><code>fetch.writeCommitGraph=true</code> writes a commit-graph after every <code>git fetch</code>
-command that downloads a pack-file from a remote. Using the <code>--split</code> option,
-most executions will create a very small commit-graph file on top of the
-existing commit-graph file(s). Occasionally, these files will merge and the
-write may take longer. Having an updated commit-graph file helps performance
-of many Git commands, including <code>git merge-base</code>, <code>git push -f</code>, and
-<code>git log --graph</code>.</p>
 </li>
 </ul>
 </div>
@@ -3613,7 +3796,10 @@ OUTPUT in <a href="git-fetch.html">git-fetch(1)</a> for detail.</p>
 sent when negotiating the contents of the packfile to be sent by the
 server. Set to "skipping" to use an algorithm that skips commits in an
 effort to converge faster, but may result in a larger-than-necessary
-packfile; The default is "default" which instructs Git to use the default algorithm
+packfile; or set to "noop" to not send any information at all, which
+will almost certainly result in a larger-than-necessary packfile, but
+will skip the negotiation step.
+The default is "default" which instructs Git to use the default algorithm
 that never skips commits (unless the server has acknowledged it or one
 of its descendants). If <code>feature.experimental</code> is enabled, then this
 setting defaults to "skipping".
@@ -3649,8 +3835,7 @@ most executions will create a very small commit-graph file on top of
 the existing commit-graph file(s). Occasionally, these files will
 merge and the write may take longer. Having an updated commit-graph
 file helps performance of many Git commands, including <code>git merge-base</code>,
-<code>git push -f</code>, and <code>git log --graph</code>. Defaults to false, unless
-<code>feature.experimental</code> is true.</p>
+<code>git push -f</code>, and <code>git log --graph</code>. Defaults to false.</p>
 </dd>
 <dt class="hdlist1">format.attach</dt>
 <dd>
@@ -3747,7 +3932,7 @@ value disables threading.</p>
 <dt class="hdlist1">format.signOff</dt>
 <dd>
 <p>A boolean value which lets you enable the <code>-s/--signoff</code> option of
-format-patch by default. <strong>Note:</strong> Adding the Signed-off-by: line to a
+format-patch by default. <strong>Note:</strong> Adding the <code>Signed-off-by</code> trailer to a
 patch should be a conscious act and means that you certify you have
 the rights to submit this work under the same open source license.
 Please see the <em>SubmittingPatches</em> document for further discussion.</p>
@@ -3764,10 +3949,18 @@ Default is false.</p>
 <p>Set a custom directory to store the resulting files instead of the
 current working directory. All directory components will be created.</p>
 </dd>
+<dt class="hdlist1">format.filenameMaxLength</dt>
+<dd>
+<p>The maximum length of the output filenames generated by the
+<code>format-patch</code> command; defaults to 64.  Can be overridden
+by the <code>--filename-max-length=&lt;n&gt;</code> command line option.</p>
+</dd>
 <dt class="hdlist1">format.useAutoBase</dt>
 <dd>
 <p>A boolean value which lets you enable the <code>--base=auto</code> option of
-format-patch by default.</p>
+format-patch by default. Can also be set to "whenAble" to allow
+enabling <code>--base=auto</code> if a suitable base is available, but to skip
+adding base info otherwise without the format dying.</p>
 </dd>
 <dt class="hdlist1">format.notes</dt>
 <dd>
@@ -3954,9 +4147,9 @@ if the system supports it. Default is true.</p>
 <dt class="hdlist1">gc.bigPackThreshold</dt>
 <dd>
 <p>If non-zero, all packs larger than this limit are kept when
-<code>git gc</code> is run. This is very similar to <code>--keep-base-pack</code>
+<code>git gc</code> is run. This is very similar to <code>--keep-largest-pack</code>
 except that all packs that meet the threshold are kept, not
-just the base pack. Defaults to zero. Common unit suffixes of
+just the largest pack. Defaults to zero. Common unit suffixes of
 <em>k</em>, <em>m</em>, or <em>g</em> are supported.</p>
 <div class="paragraph">
 <p>Note that if the number of kept packs is more than gc.autoPackLimit,
@@ -3968,7 +4161,7 @@ gc.autoPackLimit and gc.bigPackThreshold should be respected again.</p>
 <p>If the amount of memory estimated for <code>git repack</code> to run smoothly is
 not available and <code>gc.bigPackThreshold</code> is not set, the largest pack
 will also be excluded (this is the equivalent of running <code>git gc</code> with
-<code>--keep-base-pack</code>).</p>
+<code>--keep-largest-pack</code>).</p>
 </div>
 </dd>
 <dt class="hdlist1">gc.writeCommitGraph</dt>
@@ -4386,13 +4579,14 @@ the default. <em>web</em> and <em>html</em> are the same.</p>
 </dd>
 <dt class="hdlist1">help.autoCorrect</dt>
 <dd>
-<p>Automatically correct and execute mistyped commands after
-waiting for the given number of deciseconds (0.1 sec). If more
-than one command can be deduced from the entered text, nothing
-will be executed.  If the value of this option is negative,
-the corrected command will be executed immediately. If the
-value is 0 - the command will be just shown but not executed.
-This is the default.</p>
+<p>If git detects typos and can identify exactly one valid command similar
+to the error, git will automatically run the intended command after
+waiting a duration of time defined by this configuration value in
+deciseconds (0.1 sec).  If this value is 0, the suggested corrections
+will be shown, but not executed. If it is a negative integer, or
+"immediate", the suggested command
+is run immediately. If "never", suggestions are not shown at all. The
+default value is zero.</p>
 </dd>
 <dt class="hdlist1">help.htmlPath</dt>
 <dd>
@@ -4465,13 +4659,13 @@ variable.</p>
 <dd>
 <p>Enable Git&#8217;s password prompt for the proxy SSL certificate.  Otherwise OpenSSL
 will prompt the user, possibly many times, if the certificate or private key
-is encrypted. Can be overriden by the <code>GIT_PROXY_SSL_CERT_PASSWORD_PROTECTED</code>
+is encrypted. Can be overridden by the <code>GIT_PROXY_SSL_CERT_PASSWORD_PROTECTED</code>
 environment variable.</p>
 </dd>
 <dt class="hdlist1">http.proxySSLCAInfo</dt>
 <dd>
 <p>Pathname to the file containing the certificate bundle that should be used to
-verify the proxy with when using an HTTPS proxy. Can be overriden by the
+verify the proxy with when using an HTTPS proxy. Can be overridden by the
 <code>GIT_PROXY_SSL_CAINFO</code> environment variable.</p>
 </dd>
 <dt class="hdlist1">http.emptyAuth</dt>
@@ -4664,6 +4858,12 @@ override the Windows Certificate Store. Since this is not desirable
 by default, Git will tell cURL not to use that bundle by default
 when the <code>schannel</code> backend was configured via <code>http.sslBackend</code>,
 unless <code>http.schannelUseSSLCAInfo</code> overrides this behavior.</p>
+</dd>
+<dt class="hdlist1">http.sslAutoClientCert</dt>
+<dd>
+<p>As of cURL v7.77.0, the Secure Channel backend won&#8217;t automatically
+send client certificates from the Windows Certificate Store anymore.
+To opt in to the old behavior, http.sslAutoClientCert can be set.</p>
 </dd>
 <dt class="hdlist1">http.pinnedpubkey</dt>
 <dd>
@@ -4895,6 +5095,12 @@ extension" when reading the index using Git versions before 2.20.
 Defaults to <em>true</em> if index.threads has been explicitly enabled,
 <em>false</em> otherwise.</p>
 </dd>
+<dt class="hdlist1">index.sparse</dt>
+<dd>
+<p>When enabled, write the index using sparse-directory entries. This
+has no effect unless <code>core.sparseCheckout</code> and
+<code>core.sparseCheckoutCone</code> are both enabled. Defaults to <em>false</em>.</p>
+</dd>
 <dt class="hdlist1">index.threads</dt>
 <dd>
 <p>Specifies the number of threads to spawn when loading the index.
@@ -4913,6 +5119,11 @@ If <code>feature.manyFiles</code> is enabled, then the default is 4.</p>
 <dd>
 <p>Specify the directory from which templates will be copied.
 (See the "TEMPLATE DIRECTORY" section of <a href="git-init.html">git-init(1)</a>.)</p>
+</dd>
+<dt class="hdlist1">init.defaultBranch</dt>
+<dd>
+<p>Allows overriding the default branch name e.g. when initializing
+a new repository.</p>
 </dd>
 <dt class="hdlist1">instaweb.browser</dt>
 <dd>
@@ -4990,6 +5201,12 @@ similar to the <code>--decorate-refs-exclude</code> command-line option, but
 the config option can be overridden by the <code>--decorate-refs</code>
 option.</p>
 </dd>
+<dt class="hdlist1">log.diffMerges</dt>
+<dd>
+<p>Set default diff format to be used for merge commits. See
+<code>--diff-merges</code> in <a href="git-log.html">git-log(1)</a> for details.
+Defaults to <code>separate</code>.</p>
+</dd>
 <dt class="hdlist1">log.follow</dt>
 <dd>
 <p>If <code>true</code>, <code>git log</code> will act as if the <code>--follow</code> option was used when
@@ -5020,6 +5237,17 @@ normally hide the root commit will now show it. True by default.</p>
 <a href="git-whatchanged.html">git-whatchanged(1)</a> assume <code>--use-mailmap</code>, otherwise
 assume <code>--no-use-mailmap</code>. True by default.</p>
 </dd>
+<dt class="hdlist1">lsrefs.unborn</dt>
+<dd>
+<p>May be "advertise" (the default), "allow", or "ignore". If "advertise",
+the server will respond to the client sending "unborn" (as described in
+protocol-v2.txt) and will advertise support for this feature during the
+protocol v2 capability advertisement. "allow" is the same as
+"advertise" except that the server will not advertise support for this
+feature; this is useful for load-balanced servers that cannot be
+updated atomically (for example), since the administrator could
+configure "allow", then after a delay, configure "advertise".</p>
+</dd>
 <dt class="hdlist1">mailinfo.scissors</dt>
 <dd>
 <p>If true, makes <a href="git-mailinfo.html">git-mailinfo(1)</a> (and therefore
@@ -5045,6 +5273,81 @@ blob in the repository. If both <code>mailmap.file</code> and
 <code>mailmap.file</code> taking precedence. In a bare repository, this
 defaults to <code>HEAD:.mailmap</code>. In a non-bare repository, it
 defaults to empty.</p>
+</dd>
+<dt class="hdlist1">maintenance.auto</dt>
+<dd>
+<p>This boolean config option controls whether some commands run
+<code>git maintenance run --auto</code> after doing their normal work. Defaults
+to true.</p>
+</dd>
+<dt class="hdlist1">maintenance.strategy</dt>
+<dd>
+<p>This string config option provides a way to specify one of a few
+recommended schedules for background maintenance. This only affects
+which tasks are run during <code>git maintenance run --schedule=X</code>
+commands, provided no <code>--task=&lt;task&gt;</code> arguments are provided.
+Further, if a <code>maintenance.&lt;task&gt;.schedule</code> config value is set,
+then that value is used instead of the one provided by
+<code>maintenance.strategy</code>. The possible strategy strings are:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>none</code>: This default setting implies no task are run at any schedule.</p>
+</li>
+<li>
+<p><code>incremental</code>: This setting optimizes for performing small maintenance
+activities that do not delete any data. This does not schedule the <code>gc</code>
+task, but runs the <code>prefetch</code> and <code>commit-graph</code> tasks hourly, the
+<code>loose-objects</code> and <code>incremental-repack</code> tasks daily, and the <code>pack-refs</code>
+task weekly.</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">maintenance.&lt;task&gt;.enabled</dt>
+<dd>
+<p>This boolean config option controls whether the maintenance task
+with name <code>&lt;task&gt;</code> is run when no <code>--task</code> option is specified to
+<code>git maintenance run</code>. These config values are ignored if a
+<code>--task</code> option exists. By default, only <code>maintenance.gc.enabled</code>
+is true.</p>
+</dd>
+<dt class="hdlist1">maintenance.&lt;task&gt;.schedule</dt>
+<dd>
+<p>This config option controls whether or not the given <code>&lt;task&gt;</code> runs
+during a <code>git maintenance run --schedule=&lt;frequency&gt;</code> command. The
+value must be one of "hourly", "daily", or "weekly".</p>
+</dd>
+<dt class="hdlist1">maintenance.commit-graph.auto</dt>
+<dd>
+<p>This integer config option controls how often the <code>commit-graph</code> task
+should be run as part of <code>git maintenance run --auto</code>. If zero, then
+the <code>commit-graph</code> task will not run with the <code>--auto</code> option. A
+negative value will force the task to run every time. Otherwise, a
+positive value implies the command should run when the number of
+reachable commits that are not in the commit-graph file is at least
+the value of <code>maintenance.commit-graph.auto</code>. The default value is
+100.</p>
+</dd>
+<dt class="hdlist1">maintenance.loose-objects.auto</dt>
+<dd>
+<p>This integer config option controls how often the <code>loose-objects</code> task
+should be run as part of <code>git maintenance run --auto</code>. If zero, then
+the <code>loose-objects</code> task will not run with the <code>--auto</code> option. A
+negative value will force the task to run every time. Otherwise, a
+positive value implies the command should run when the number of
+loose objects is at least the value of <code>maintenance.loose-objects.auto</code>.
+The default value is 100.</p>
+</dd>
+<dt class="hdlist1">maintenance.incremental-repack.auto</dt>
+<dd>
+<p>This integer config option controls how often the <code>incremental-repack</code>
+task should be run as part of <code>git maintenance run --auto</code>. If zero,
+then the <code>incremental-repack</code> task will not run with the <code>--auto</code>
+option. A negative value will force the task to run every time.
+Otherwise, a positive value implies the command should run when the
+number of pack-files not in the multi-pack-index is at least the value
+of <code>maintenance.incremental-repack.auto</code>. The default value is 10.</p>
 </dd>
 <dt class="hdlist1">man.viewer</dt>
 <dd>
@@ -5110,6 +5413,20 @@ to false.</p>
 most the specified number of one-line descriptions from the
 actual commits that are being merged.  Defaults to false, and
 true is a synonym for 20.</p>
+</dd>
+<dt class="hdlist1">merge.suppressDest</dt>
+<dd>
+<p>By adding a glob that matches the names of integration
+branches to this multi-valued configuration variable, the
+default merge message computed for merges into these
+integration branches will omit "into &lt;branch name&gt;" from
+its title.</p>
+<div class="paragraph">
+<p>An element with an empty value can be used to clear the list
+of globs accumulated from previous configuration entries.
+When there is no <code>merge.suppressDest</code> variable defined, the
+default value of <code>master</code> is used for backward compatibility.</p>
+</div>
 </dd>
 <dt class="hdlist1">merge.renameLimit</dt>
 <dd>
@@ -5190,6 +5507,9 @@ corresponding mergetool.&lt;guitool&gt;.cmd variable is defined.</p>
 <p>bc3</p>
 </li>
 <li>
+<p>bc4</p>
+</li>
+<li>
 <p>codecompare</p>
 </li>
 <li>
@@ -5217,6 +5537,9 @@ corresponding mergetool.&lt;guitool&gt;.cmd variable is defined.</p>
 <p>gvimdiff</p>
 </li>
 <li>
+<p>gvimdiff1</p>
+</li>
+<li>
 <p>gvimdiff2</p>
 </li>
 <li>
@@ -5227,6 +5550,18 @@ corresponding mergetool.&lt;guitool&gt;.cmd variable is defined.</p>
 </li>
 <li>
 <p>meld</p>
+</li>
+<li>
+<p>nvimdiff</p>
+</li>
+<li>
+<p>nvimdiff1</p>
+</li>
+<li>
+<p>nvimdiff2</p>
+</li>
+<li>
+<p>nvimdiff3</p>
 </li>
 <li>
 <p>opendiff</p>
@@ -5245,6 +5580,9 @@ corresponding mergetool.&lt;guitool&gt;.cmd variable is defined.</p>
 </li>
 <li>
 <p>vimdiff</p>
+</li>
+<li>
+<p>vimdiff1</p>
 </li>
 <li>
 <p>vimdiff2</p>
@@ -5303,6 +5641,12 @@ file containing the contents of the file from the branch being
 merged; <em>MERGED</em> contains the name of the file to which the merge
 tool should write the results of a successful merge.</p>
 </dd>
+<dt class="hdlist1">mergetool.&lt;tool&gt;.hideResolved</dt>
+<dd>
+<p>Allows the user to override the global <code>mergetool.hideResolved</code> value
+for a specific tool. See <code>mergetool.hideResolved</code> for the full
+description.</p>
+</dd>
 <dt class="hdlist1">mergetool.&lt;tool&gt;.trustExitCode</dt>
 <dd>
 <p>For a custom merge command, specify whether the exit code of
@@ -5321,6 +5665,28 @@ by inspecting the output of <code>meld --help</code>.  Configuring
 use the configured value instead.  Setting <code>mergetool.meld.hasOutput</code>
 to <code>true</code> tells Git to unconditionally use the <code>--output</code> option,
 and <code>false</code> avoids using <code>--output</code>.</p>
+</dd>
+<dt class="hdlist1">mergetool.meld.useAutoMerge</dt>
+<dd>
+<p>When the <code>--auto-merge</code> is given, meld will merge all non-conflicting
+parts automatically, highlight the conflicting parts and wait for
+user decision.  Setting <code>mergetool.meld.useAutoMerge</code> to <code>true</code> tells
+Git to unconditionally use the <code>--auto-merge</code> option with <code>meld</code>.
+Setting this value to <code>auto</code> makes git detect whether <code>--auto-merge</code>
+is supported and will only use <code>--auto-merge</code> when available.  A
+value of <code>false</code> avoids using <code>--auto-merge</code> altogether, and is the
+default value.</p>
+</dd>
+<dt class="hdlist1">mergetool.hideResolved</dt>
+<dd>
+<p>During a merge Git will automatically resolve as many conflicts as
+possible and write the <em>MERGED</em> file containing conflict markers around
+any conflicts that it cannot resolve; <em>LOCAL</em> and <em>REMOTE</em> normally
+represent the versions of the file from before Git&#8217;s conflict
+resolution. This flag causes <em>LOCAL</em> and <em>REMOTE</em> to be overwriten so
+that only the unresolved conflicts are presented to the merge tool. Can
+be configured per-tool via the <code>mergetool.&lt;tool&gt;.hideResolved</code>
+configuration variable. Defaults to <code>false</code>.</p>
 </dd>
 <dt class="hdlist1">mergetool.keepBackup</dt>
 <dd>
@@ -5559,6 +5925,24 @@ that extra objects are added to the pack-file if the included
 commits contain certain types of direct renames. Default is
 <code>true</code>.</p>
 </dd>
+<dt class="hdlist1">pack.preferBitmapTips</dt>
+<dd>
+<p>When selecting which commits will receive bitmaps, prefer a
+commit at the tip of any reference that is a suffix of any value
+of this configuration over any other commits in the "selection
+window".</p>
+<div class="paragraph">
+<p>Note that setting this configuration to <code>refs/foo</code> does not mean that
+the commits at the tips of <code>refs/foo/bar</code> and <code>refs/foo/baz</code> will
+necessarily be selected. This is because commits are selected for
+bitmaps from within a series of windows of variable length.</p>
+</div>
+<div class="paragraph">
+<p>If a commit at the tip of any reference which is a suffix of any value
+of this configuration is seen in a window, it is immediately given
+preference over any other commit in that window.</p>
+</div>
+</dd>
 <dt class="hdlist1">pack.writeBitmaps (deprecated)</dt>
 <dd>
 <p>This is a deprecated synonym for <code>repack.writeBitmaps</code>.</p>
@@ -5572,6 +5956,14 @@ bitmapped and non-bitmapped objects (e.g., when serving a fetch
 between an older, bitmapped pack and objects that have been
 pushed since the last gc). The downside is that it consumes 4
 bytes per object of disk space. Defaults to true.</p>
+</dd>
+<dt class="hdlist1">pack.writeReverseIndex</dt>
+<dd>
+<p>When true, git will write a corresponding .rev file (see:
+<a href="../technical/pack-format.html">Documentation/technical/pack-format.txt</a>)
+for each new packfile that it writes in all places except for
+<a href="git-fast-import.html">git-fast-import(1)</a> and in the bulk checkin mechanism.
+Defaults to false.</p>
 </dd>
 <dt class="hdlist1">pager.&lt;cmd&gt;</dt>
 <dd>
@@ -5666,7 +6058,7 @@ both, you must do so individually.</p>
 <p>If set, clients will attempt to communicate with a server
 using the specified protocol version.  If the server does
 not support it, communication falls back to version 0.
-If unset, the default is <code>0</code>.
+If unset, the default is <code>2</code>.
 Supported versions:</p>
 <div class="openblock">
 <div class="content">
@@ -5869,13 +6261,20 @@ specifying <em>--recurse-submodules=check|on-demand|no</em>.
 If not set, <em>no</em> is used by default, unless <em>submodule.recurse</em> is
 set (in which case a <em>true</em> value means <em>on-demand</em>).</p>
 </dd>
-<dt class="hdlist1">rebase.useBuiltin</dt>
+<dt class="hdlist1">push.useForceIfIncludes</dt>
 <dd>
-<p>Unused configuration variable. Used in Git versions 2.20 and
-2.21 as an escape hatch to enable the legacy shellscript
-implementation of rebase. Now the built-in rewrite of it in C
-is always used. Setting this will emit a warning, to alert any
-remaining users that setting this now does nothing.</p>
+<p>If set to "true", it is equivalent to specifying
+<code>--force-if-includes</code> as an option to <a href="git-push.html">git-push(1)</a>
+in the command line. Adding <code>--no-force-if-includes</code> at the
+time of push overrides this configuration setting.</p>
+</dd>
+<dt class="hdlist1">push.negotiate</dt>
+<dd>
+<p>If set to "true", attempt to reduce the size of the packfile
+sent by rounds of negotiation in which the client and the
+server attempt to find commits in common. If "false", Git will
+rely solely on the server&#8217;s ref advertisement to find commits
+in common.</p>
 </dd>
 <dt class="hdlist1">rebase.backend</dt>
 <dd>
@@ -5952,6 +6351,10 @@ todo list resulting in something like this:</p>
 <p>Automatically reschedule <code>exec</code> commands that failed. This only makes
 sense in interactive mode (or when an <code>--exec</code> option was provided).
 This is the same as specifying the <code>--reschedule-failed-exec</code> option.</p>
+</dd>
+<dt class="hdlist1">rebase.forkPoint</dt>
+<dd>
+<p>If set to false set <code>--no-fork-point</code> option by default.</p>
 </dd>
 <dt class="hdlist1">receive.advertiseAtomic</dt>
 <dd>
@@ -6086,6 +6489,34 @@ set when initializing a shared repository.</p>
 only to <code>receive-pack</code> (and so affects pushes, but not fetches).
 An attempt to update or delete a hidden ref by <code>git push</code> is
 rejected.</p>
+</dd>
+<dt class="hdlist1">receive.procReceiveRefs</dt>
+<dd>
+<p>This is a multi-valued variable that defines reference prefixes
+to match the commands in <code>receive-pack</code>.  Commands matching the
+prefixes will be executed by an external hook "proc-receive",
+instead of the internal <code>execute_commands</code> function.  If this
+variable is not defined, the "proc-receive" hook will never be
+used, and all commands will be executed by the internal
+<code>execute_commands</code> function.</p>
+<div class="paragraph">
+<p>For example, if this variable is set to "refs/for", pushing to reference
+such as "refs/for/master" will not create or update a reference named
+"refs/for/master", but may create or update a pull request directly by
+running the hook "proc-receive".</p>
+</div>
+<div class="paragraph">
+<p>Optional modifiers can be provided in the beginning of the value to filter
+commands for specific actions: create (a), modify (m), delete (d).
+A <code>!</code> can be included in the modifiers to negate the reference prefix entry.
+E.g.:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>git config --system --add receive.procReceiveRefs ad:refs/heads
+git config --system --add receive.procReceiveRefs !:refs/heads</pre>
+</div>
+</div>
 </dd>
 <dt class="hdlist1">receive.updateServerInfo</dt>
 <dd>
@@ -6332,6 +6763,12 @@ See also the <code>--batch-size</code> option of <a href="git-send-email.html">g
 <p>Seconds wait before reconnecting to smtp server.
 See also the <code>--relogin-delay</code> option of <a href="git-send-email.html">git-send-email(1)</a>.</p>
 </dd>
+<dt class="hdlist1">sendemail.forbidSendmailVariables</dt>
+<dd>
+<p>To avoid common misconfiguration mistakes, <a href="git-send-email.html">git-send-email(1)</a>
+will abort with a warning if any configuration options for "sendmail"
+exist. Set this variable to bypass the check.</p>
+</dd>
 <dt class="hdlist1">sendpack.sideband</dt>
 <dd>
 <p>Allows to disable the side-band-64k capability for send-pack even
@@ -6533,6 +6970,12 @@ not honor these settings.</p>
 implementation of stash.  Now the built-in rewrite of it in C
 is always used. Setting this will emit a warning, to alert any
 remaining users that setting this now does nothing.</p>
+</dd>
+<dt class="hdlist1">stash.showIncludeUntracked</dt>
+<dd>
+<p>If this is set to true, the <code>git stash show</code> command will show
+the untracked files of a stash entry.  Defaults to false. See
+description of <em>show</em> command in <a href="git-stash.html">git-stash(1)</a>.</p>
 </dd>
 <dt class="hdlist1">stash.showPatch</dt>
 <dd>
@@ -6775,7 +7218,7 @@ be recorded in the trace2 output.  For example,
 <code>GIT_HTTP_USER_AGENT,GIT_CONFIG</code> would cause the trace2 output to
 contain events listing the overrides for HTTP user agent and the
 location of the Git configuration file (assuming any are set).  May be
-overriden by the <code>GIT_TRACE2_ENV_VARS</code> environment variable.  Unset by
+overridden by the <code>GIT_TRACE2_ENV_VARS</code> environment variable.  Unset by
 default.</p>
 </dd>
 <dt class="hdlist1">trace2.destinationDebug</dt>
@@ -6876,6 +7319,11 @@ separate repository.</p>
 not set, the value of this variable is used instead.
 The default value is 100.</p>
 </dd>
+<dt class="hdlist1">transfer.advertiseSID</dt>
+<dd>
+<p>Boolean. When true, client and server processes will advertise their
+unique session IDs to their remote counterpart. Defaults to false.</p>
+</dd>
 <dt class="hdlist1">uploadarchive.allowUnreachable</dt>
 <dd>
 <p>If true, allow clients to use <code>git archive --remote</code> to request
@@ -6950,6 +7398,28 @@ untrusted repositories).</p>
 <dd>
 <p>If this option is set, <code>upload-pack</code> will support partial
 clone and partial fetch object filtering.</p>
+</dd>
+<dt class="hdlist1">uploadpackfilter.allow</dt>
+<dd>
+<p>Provides a default value for unspecified object filters (see: the
+below configuration variable). If set to <code>true</code>, this will also
+enable all filters which get added in the future.
+Defaults to <code>true</code>.</p>
+</dd>
+<dt class="hdlist1">uploadpackfilter.&lt;filter&gt;.allow</dt>
+<dd>
+<p>Explicitly allow or ban the object filter corresponding to
+<code>&lt;filter&gt;</code>, where <code>&lt;filter&gt;</code> may be one of: <code>blob:none</code>,
+<code>blob:limit</code>, <code>object:type</code>, <code>tree</code>, <code>sparse:oid</code>, or <code>combine</code>.
+If using combined filters, both <code>combine</code> and all of the nested
+filter kinds must be allowed. Defaults to <code>uploadpackfilter.allow</code>.</p>
+</dd>
+<dt class="hdlist1">uploadpackfilter.tree.maxDepth</dt>
+<dd>
+<p>Only allow <code>--filter=tree:&lt;n&gt;</code> when <code>&lt;n&gt;</code> is no more than the value of
+<code>uploadpackfilter.tree.maxDepth</code>. If set, this also implies
+<code>uploadpackfilter.tree.allow=true</code>, unless this configuration
+variable had already been set. Has no effect if unset.</p>
 </dd>
 <dt class="hdlist1">uploadpack.allowRefInWant</dt>
 <dd>
@@ -7134,7 +7604,7 @@ looks like</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-06-01 18:38:25 UTC
+Last updated 2021-07-06 19:00:22 UTC
 </div>
 </div>
 </body>

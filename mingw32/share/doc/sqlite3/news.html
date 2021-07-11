@@ -95,11 +95,59 @@ return false;
 
 <h2>Recent News</h2>
 
-<a name="2020_06_18"></a><h3>2020-06-18 - Release 3.32.3</h3><blockquote>
+<a name="2021_06_18"></a><h3>2021-06-18 - <a href="releaselog/3_36_0.html">Version 3.36.0</a></h3><blockquote>
+Version 3.36.0 is a routine maintenance release of SQLite.
+There are no new major features, only incremental improvements
+to existing features and small performance improvements.
+</blockquote><hr width="50%"><a name="2021_04_19"></a><h3>2021-04-19 - Patch release 3.35.5</h3><blockquote>
+The new ALTER TABLE DROP COLUMN capability that was added
+in the 3.35.0 release contained a bug that might cause the
+table content to go corrupt when the table was rewritten
+to remove the dropped column.  Fixed by this patch.
+</blockquote><hr width="50%"><a name="2021_04_02"></a><h3>2021-04-02 - Patch release 3.35.4</h3><blockquote>
+Version 3.35.4 is yet another patch release to fix
+obscure problems in features associated with the 3.35.0.
+</blockquote><hr width="50%"><a name="2021_03_26"></a><h3>2021-03-26 - Patch release 3.35.3</h3><blockquote>
+Version 3.35.3 contains patches for a handful of minor
+problems discovered in prior releases.
+</blockquote><hr width="50%"><a name="2021_03_17"></a><h3>2021-03-17 - Patch release 3.35.2</h3><blockquote>
+Version 3.35.2 is a small patch release to fix some minor problems
+that were discovered shortly after the 3.35.1 release.
+</blockquote><hr width="50%"><a name="2021_03_15"></a><h3>2021-03-15 - Patch release 3.35.1</h3><blockquote>
+A user discovered an issue with the new DROP COLUMN capability
+in version 3.35.0, and so version 3.35.1 was created to fix it.
+No need to upgrade if you are not using DROP COLUMN.
+</blockquote><hr width="50%"><a name="2021_03_12"></a><h3>2021-03-12 - Release 3.35.0</h3><blockquote>
+SQLite version 3.35.0 is a routine maintenance release.  This
+release adds a number of new language features, including
+support for ALTER TABLE DROP COLUMN, built-in math functions,
+generalized UPSERT, and the MATERIALIZED hint on common table
+expressions.  There are also query planner optimizations and
+incremental CLI improvements.
+</blockquote><hr width="50%"><a name="2020_01_20"></a><h3>2020-01-20 - Release 3.34.1</h3><blockquote>
+SQLite version 3.34.1 is a patch releases that fixes a possible
+use-after-free bug that can be provoked by malicious SQL.  Other
+minor issues in extensions and documentation are also fixed.
+</blockquote><hr width="50%"><a name="2020_12_01"></a><h3>2020-12-01 - Release 3.34.0</h3><blockquote>
+SQLite version 3.34.0 is a routine maintenance release.  This
+release adds incremental improvements to performance and features,
+including enhancements to the query planner, multiple recursive
+SELECTS in recursive common table expressions, and better error messages
+from CHECK constraint failures.  See the change log for details.
+</blockquote><hr width="50%"><a name="2020_08_14"></a><h3>2020-08-14 - Release 3.33.0</h3><blockquote>
+SQLite version 3.33.0 is a routine maintenance release.  This
+release features added support for "UPDATE FROM" following the
+PostgreSQL syntax, and a doubling of the maximum database size
+to 281 TB, as well as many other improvements.  See the change
+log for details.
+</blockquote><hr width="50%"><a name="2020_06_18"></a><h3>2020-06-18 - Release 3.32.3</h3><blockquote>
 The 3.32.3 release is a patch release that contains fixes for
 various issues discovered by fuzzers.  None of the issues fixed
 are likely to be encountered by applications that use SQLite in
 ordinary ways, though upgrading never hurts.
+<p>
+Map of all changes since the 3.32.0 release:
+<a href="https://www.sqlite.org/src/timeline?p=version-3.32.3&bt=version-3.32.0">https://www.sqlite.org/src/timeline?p=version-3.32.3&bt=version-3.32.0</a>
 </blockquote><hr width="50%"><a name="2020_06_04"></a><h3>2020-06-04 - Release 3.32.2</h3><blockquote>
 The 3.32.2 release is a one-line change relative to 3.32.1
 that fixes a long-standing bug in the COMMIT command.  Since

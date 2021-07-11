@@ -27,13 +27,13 @@ jobs:
         shell: bash
         run: |
           sh -x ./build-extra/please.sh create-sdk-artifact --sdk=git-sdk-64.git ${{matrix.artifact}}
-          echo "::set-env name=ARTIFACT_PATH::$(echo ${{matrix.artifact}}/*.tar.xz)"
+          echo "ARTIFACT_PATH=$(echo ${{matrix.artifact}}/*.tar.xz)" >$GITHUB_ENV
       - name: compress artifact
         if: matrix.artifact != 'full-sdk'
         shell: bash
         run: |
           (cd ${{matrix.artifact}} && tar cvf - * .[0-9A-Za-z]*) | xz -9 >git-sdk-64-${{matrix.artifact}}.tar.xz
-          echo "::set-env name=ARTIFACT_PATH::$(echo *.tar.xz)"
+          echo "ARTIFACT_PATH=$(echo *.tar.xz)" >$GITHUB_ENV
       - name: upload to Azure Blobs
         if: github.event.repository.fork == false
         uses: fixpoint/azblob-upload-artifact@v3
@@ -68,7 +68,7 @@ jobs:
         run: git clone --depth=1 --branch master https://github.com/git/git ..\git
       - name: build current `master` of git.git
         run: |
-          & .\minimal-sdk\usr\bin\bash.exe -lc "make -C ../git NO_PERL=1 -j8 all strip"
+          & .\minimal-sdk\usr\bin\bash.exe -lc "make -C ../git NO_PERL=1 SKIP_DASHED_BUILT_INS=YesPlease -j8 all strip"
       - name: compress git artifacts
         shell: bash
         run: tar -C .. -cf - --exclude '*.a' --exclude '*.o' --exclude .git --exclude .depend git | xz -9 >git-artifacts.tar.xz

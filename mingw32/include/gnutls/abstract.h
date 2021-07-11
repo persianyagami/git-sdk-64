@@ -21,8 +21,8 @@
  *
  */
 
-#ifndef __GNUTLS_ABSTRACT_H
-#define __GNUTLS_ABSTRACT_H
+#ifndef GNUTLS_ABSTRACT_H
+#define GNUTLS_ABSTRACT_H
 
 #include <gnutls/gnutls.h>
 #include <gnutls/x509.h>
@@ -746,7 +746,7 @@ typedef int gnutls_certificate_retrieve_function3(
 				gnutls_session_t,
 				const struct gnutls_cert_retr_st *info,
 				gnutls_pcert_st **certs,
-				unsigned int *pcert_length,
+				unsigned int *certs_length,
 				gnutls_ocsp_data_st **ocsp,
 				unsigned int *ocsp_length,
 				gnutls_privkey_t *privkey,
@@ -774,4 +774,5 @@ gnutls_pubkey_print(gnutls_pubkey_t pubkey,
 }
 #endif
 /* *INDENT-ON* */
-#endif
+
+#endif /* GNUTLS_ABSTRACT_H */

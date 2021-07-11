@@ -105,7 +105,7 @@ return false;
      it recovers more content from corrupt database files.
 <li> Enhance the <a href="../rbu.html">RBU</a> extension to support <a href="../expridx.html">indexes on expressions</a>.
 <li> Change the schema parser so that it will error out if any of
-     the type, name, and tbl_name columns of the <a href="../fileformat2.html#sqlite_master">sqlite_master table</a>
+     the type, name, and tbl_name columns of the <a href="../schematab.html">sqlite_master table</a>
      have been corrupted and the database connection is not in
      <a href="../pragma.html#pragma_writable_schema">writable_schema</a> mode.
 <li> The <a href="../pragma.html#pragma_function_list">PRAGMA function_list</a>, <a href="../pragma.html#pragma_module_list">PRAGMA module_list</a>, and
@@ -121,7 +121,7 @@ return false;
      being used inside triggers and views.
 <li> The legacy <a href="../compile.html#enable_stat3">SQLITE_ENABLE_STAT3</a> compile-time option is now a no-op.
 </ol>
-<p><b>Additional changes in version 3.30.1:</b></p>
+<p><b>Additional changes in version 3.30.1 (2019-10-10):</b></p>
 <p><ol class='lessindent'>
 <li value='13'> Fix a bug in the <a href="../optoverview.html#flattening">query flattener</a> that might cause a segfault
 for nested queries that use the new 

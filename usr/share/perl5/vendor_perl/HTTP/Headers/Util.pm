@@ -3,9 +3,9 @@ package HTTP::Headers::Util;
 use strict;
 use warnings;
 
-our $VERSION = '6.24';
+our $VERSION = '6.32';
 
-use base 'Exporter';
+use Exporter 5.57 'import';
 
 our @EXPORT_OK=qw(split_header_words _split_header_words join_header_words);
 
@@ -103,7 +103,7 @@ HTTP::Headers::Util - Header value parsing utility functions
 
 =head1 VERSION
 
-version 6.24
+version 6.32
 
 =head1 SYNOPSIS
 
