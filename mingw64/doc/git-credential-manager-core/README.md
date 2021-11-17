@@ -6,7 +6,7 @@
 
 [Git Credential Manager Core](https://github.com/microsoft/Git-Credential-Manager-Core) (GCM Core) is a secure Git credential helper built on [.NET](https://dotnet.microsoft.com) that runs on Windows, macOS, and Linux.
 
-Compared to Git's [built-in credential helpers]((https://git-scm.com/book/en/v2/Git-Tools-Credential-Storage)) (Windows: wincred, macOS: osxkeychain, Linux: gnome-keyring/libsecret) which provides single-factor authentication support working on any HTTP-enabled Git repository, GCM Core provides multi-factor authentication support for [Azure DevOps](https://dev.azure.com/), Azure DevOps Server (formerly Team Foundation Server), GitHub, and Bitbucket.
+Compared to Git's [built-in credential helpers](<(https://git-scm.com/book/en/v2/Git-Tools-Credential-Storage)>) (Windows: wincred, macOS: osxkeychain, Linux: gnome-keyring/libsecret) which provides single-factor authentication support working on any HTTP-enabled Git repository, GCM Core provides multi-factor authentication support for [Azure DevOps](https://dev.azure.com/), Azure DevOps Server (formerly Team Foundation Server), GitHub, and Bitbucket.
 
 Git Credential Manager Core (GCM Core) replaces the .NET Framework-based [Git Credential Manager for Windows](https://github.com/microsoft/Git-Credential-Manager-for-Windows) (GCM), and the Java-based [Git Credential Manager for Mac and Linux](https://github.com/microsoft/Git-Credential-Manager-for-Mac-and-Linux) (Java GCM), providing a consistent authentication experience across all platforms.
 
@@ -18,20 +18,20 @@ Git Credential Manager Core is currently available for Windows, macOS, and Linux
 - [GitHub SSH](https://help.github.com/en/articles/connecting-to-github-with-ssh)
 - [Bitbucket SSH](https://confluence.atlassian.com/bitbucket/ssh-keys-935365775.html)
 
-Feature|Windows|macOS|Linux
--|:-:|:-:|:-:
-Installer/uninstaller|&#10003;|&#10003;|&#10003;\*
-Secure platform credential storage|&#10003;<br/>[(see more)](docs/credstores.md)|&#10003;<br/>[(see more)](docs/credstores.md)|&#10003;<br/>[(see more)](docs/credstores.md)
-Multi-factor authentication support for Azure DevOps|&#10003;|&#10003;|&#10003;
-Two-factor authentication support for GitHub|&#10003;|&#10003;|&#10003;
-Two-factor authentication support for Bitbucket|&#10003;|&#10003;|&#10003;
-Windows Integrated Authentication (NTLM/Kerberos) support|&#10003;|_N/A_|_N/A_
-Basic HTTP authentication support|&#10003;|&#10003;|&#10003;
-Proxy support|&#10003;|&#10003;|&#10003;
-`amd64` support|&#10003;|&#10003;|&#10003;
-`x86` support|&#10003;|_N/A_|&#10007;
-`arm64` support|best effort|via Rosetta 2|best effort, no packages
-`armhf` support|_N/A_|_N/A_|best effort, no packages
+| Feature                                                   |                    Windows                    |                     macOS                     |                     Linux                     |
+| --------------------------------------------------------- | :-------------------------------------------: | :-------------------------------------------: | :-------------------------------------------: |
+| Installer/uninstaller                                     |                   &#10003;                    |                   &#10003;                    |                  &#10003;\*                   |
+| Secure platform credential storage                        | &#10003;<br/>[(see more)](docs/credstores.md) | &#10003;<br/>[(see more)](docs/credstores.md) | &#10003;<br/>[(see more)](docs/credstores.md) |
+| Multi-factor authentication support for Azure DevOps      |                   &#10003;                    |                   &#10003;                    |                   &#10003;                    |
+| Two-factor authentication support for GitHub              |                   &#10003;                    |                   &#10003;                    |                   &#10003;                    |
+| Two-factor authentication support for Bitbucket           |                   &#10003;                    |                   &#10003;                    |                   &#10003;                    |
+| Windows Integrated Authentication (NTLM/Kerberos) support |                   &#10003;                    |                     _N/A_                     |                     _N/A_                     |
+| Basic HTTP authentication support                         |                   &#10003;                    |                   &#10003;                    |                   &#10003;                    |
+| Proxy support                                             |                   &#10003;                    |                   &#10003;                    |                   &#10003;                    |
+| `amd64` support                                           |                   &#10003;                    |                   &#10003;                    |                   &#10003;                    |
+| `x86` support                                             |                   &#10003;                    |                     _N/A_                     |                   &#10007;                    |
+| `arm64` support                                           |                  best effort                  |                 via Rosetta 2                 |           best effort, no packages            |
+| `armhf` support                                           |                     _N/A_                     |                     _N/A_                     |           best effort, no packages            |
 
 **Notes:**
 
@@ -85,7 +85,9 @@ sudo /usr/local/share/gcm-core/uninstall.sh
 ---
 
 <!-- this explicit anchor should stay stable so that external docs can link here -->
+
 <a name="linux-install-instructions"></a>
+
 ### Linux
 
 #### Ubuntu/Debian distributions
@@ -96,7 +98,8 @@ Download the latest [.deb package](https://github.com/microsoft/Git-Credential-M
 sudo dpkg -i <path-to-package>
 git-credential-manager-core configure
 ```
-__Note:__ Although packages were previously offered on certain
+
+**Note:** Although packages were previously offered on certain
 [Microsoft Ubuntu package feeds](https://packages.microsoft.com/repos/),
 GCM no longer publishes to these repositories. Please install the
 Debian package using the above instructions instead.
